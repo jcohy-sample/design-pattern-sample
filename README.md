@@ -1,9 +1,9 @@
 # template-sample
 Sample 项目模板工程
 
-## 模板代码
+## 设计模式
 
-image::{oss-images}/map-uml.png[]
+image::https://study.jcohy.com/images//design-overview.png[]
 
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
 .Java

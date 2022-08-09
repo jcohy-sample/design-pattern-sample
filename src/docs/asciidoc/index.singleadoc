@@ -1,5 +1,5 @@
-[[jcohy-study-note]]
-= Jcohy 学习笔记
+[[design-overview]]
+= 设计模式
 Jcohy
 include::attributes.adoc[]
 
@@ -12,3 +12,55 @@ https://docs.jcohy.com[*https://docs.jcohy.com*]
 
 我的学习笔记,记录学习过程中的笔记以及遇到的问题,以及我的一些经验总结.如果出现链接失效,或者想知道更多的内容等情况可以提交 https://github.com/jcohy/jcohy-issues/issues[Issues] 提醒我修改相关内容.
 ****
+
+image::{oss-images}/design-overview.png[]
+
+* [设计原则]
+** [单一职责原则]
+** [里氏替换原则]
+** [依赖倒转原则]
+** [接口隔离原则]
+** [迪米特法则]
+** [合成复用原则]
+* 设计模式
+**  创建型模式(5种)
+*** <<design-factory,工厂模式(Factory Method)>>
+*** <<design-abstract-factory,抽象工厂模式(Abstract Factory)>>
+*** <<design-singleton,单例模式(Singleton)>>
+*** <<design-builder,建造者模式(Builder)>>
+*** <<design-prototype,原型模式(Prototype)>>
+**  结构型模式(7种)
+*** <<design-adapter,适配器模式(Adapter)>>
+*** <<design-decorator,装饰模式(Decorator)>>
+*** <<design-proxy,代理模式(Proxy)>>
+*** <<design-facade,外观模式(Facade)>>
+*** <<design-bridge,桥接模式(Bridge)>>
+*** <<design-composite,组合模式(Composite)>>
+*** <<design-flyweight,亨元模式(Flyweight)>>
+**  关系型模式(11种)
+*** <<design-strategy,策略模式(Strategy)>>
+*** <<design-template,模板方法模式(Template Method)>>
+*** <<design-observer,观察者模式(Observer)>>
+*** <<design-iterator,迭代器模式(Iterator)>>
+*** <<design-responsibility,责任链模式(Chain Of Responsibility)>>
+*** <<design-command,命令模式(Command)>>
+*** <<design-memento,备忘录模式(Memento)>>
+*** <<design-state,状态模式(State)>>
+*** <<design-visitor,访问者模式(Visitor)>>
+*** <<design-mediator,中介者模式(Mediator)>>
+*** <<design-interpreter,解释器模式(Interpreter)>>
+
+适配器模式、装饰模式、代理模式、外观模式、桥接模式、组合模式、享元模式.其中对象的适配器模式是各种模式的起源,我们看下面的图:
+
+image::{oss-images}/design-structure.png[]
+
+策略模式、模板方法模式、观察者模式、迭代子模式、责任链模式、命令模式、备忘录模式、状态模式、访问者模式、中介者模式、解释器模式.大致分为四类关系:
+
+image::{oss-images}/design-real.png[]
+
+include::creative/index.adoc[leveloffset=+1]
+
+include::relational/index.adoc[leveloffset=+1]
+
+include::structural/index.adoc[leveloffset=+1]
+

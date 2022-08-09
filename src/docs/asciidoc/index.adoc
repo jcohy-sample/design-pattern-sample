@@ -1,6 +1,8 @@
-[[java]]
-= Java
+[[design-overview]]
+= 设计模式
 include::attributes.adoc[]
+
+image::{oss-images}/design-overview.png[]
 
 ****
 作者网页:

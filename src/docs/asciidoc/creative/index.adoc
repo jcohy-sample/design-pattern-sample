@@ -1,0 +1,12 @@
+[[design-creative]]
+= 创建型模式(5种)
+
+include::Factory.adoc[leveloffset=+1]
+
+//include::AbstractFactory.adoc[leveloffset=+1]
+//
+//include::Singleton.adoc[leveloffset=+1]
+//
+//include::Builder.adoc[leveloffset=+1]
+//
+//include::Prototype.adoc[leveloffset=+1]
