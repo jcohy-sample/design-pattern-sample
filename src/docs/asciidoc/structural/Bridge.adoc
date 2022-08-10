@@ -34,7 +34,7 @@
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
 .Dirver
 ----
-include::{design-pattern-code}/bridge/Dirver.java[tag=code]
+include::{java-code}/bridge/Dirver.java[tag=code]
 ----
 
 2.接口实现
@@ -42,17 +42,17 @@ include::{design-pattern-code}/bridge/Dirver.java[tag=code]
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
 .MysqlDirver
 ----
-include::{design-pattern-code}/bridge/MysqlDirver.java[tag=code]
+include::{java-code}/bridge/MysqlDirver.java[tag=code]
 ----
 .OracleDirver
 [source,java,indent=0,subs="verbatim,quotes",role="secondary"]
 ----
-include::{design-pattern-code}/bridge/OracleDirver.java[tag=code]
+include::{java-code}/bridge/OracleDirver.java[tag=code]
 ----
 .SqlSerDirver
 [source,java,indent=0,subs="verbatim,quotes",role="secondary"]
 ----
-include::{design-pattern-code}/bridge/SqlSerDirver.java[tag=code]
+include::{java-code}/bridge/SqlSerDirver.java[tag=code]
 ----
 
 3.Briage
@@ -60,7 +60,7 @@ include::{design-pattern-code}/bridge/SqlSerDirver.java[tag=code]
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
 .JDBC
 ----
-include::{design-pattern-code}/bridge/JDBC.java[tag=code]
+include::{java-code}/bridge/JDBC.java[tag=code]
 ----
 
 4.具体实现
@@ -68,7 +68,7 @@ include::{design-pattern-code}/bridge/JDBC.java[tag=code]
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
 .MyBriage
 ----
-include::{design-pattern-code}/bridge/DirverManange.java[tag=code]
+include::{java-code}/bridge/DirverManange.java[tag=code]
 ----
 
 5.Client
@@ -76,7 +76,7 @@ include::{design-pattern-code}/bridge/DirverManange.java[tag=code]
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
 .Client
 ----
-include::{design-pattern-code}/bridge/Client.java[tag=code]
+include::{java-code}/bridge/Client.java[tag=code]
 ----
 
 5.result

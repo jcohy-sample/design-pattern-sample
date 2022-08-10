@@ -40,7 +40,7 @@ image::{oss-images}/design-decorator1.png[]
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
 .Display
 ----
-include::{design-pattern-code}/decorator/example2/Display.java[tag=code]
+include::{java-code}/decorator/example2/Display.java[tag=code]
 ----
 
 2.StringDisplay:打印整行字符串的实现类.
@@ -48,7 +48,7 @@ include::{design-pattern-code}/decorator/example2/Display.java[tag=code]
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
 .StringDisplay
 ----
-include::{design-pattern-code}/decorator/example2/StringDisplay.java[tag=code]
+include::{java-code}/decorator/example2/StringDisplay.java[tag=code]
 ----
 
 3.Border: Border类表示装饰外框的抽象类.虽然定义为装饰外框的的类,但仍定义为打印字符串Display的子类.
@@ -56,15 +56,15 @@ include::{design-pattern-code}/decorator/example2/StringDisplay.java[tag=code]
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
 .Border
 ----
-include::{design-pattern-code}/decorator/example2/Border.java[tag=code]
+include::{java-code}/decorator/example2/Border.java[tag=code]
 ----
-  
+
 4.SideBorder: 是一种具体的外框,也是Border类的子类.
 
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
 .SideBorder
 ----
-include::{design-pattern-code}/decorator/example2/SideBorder.java[tag=code]
+include::{java-code}/decorator/example2/SideBorder.java[tag=code]
 ----
 
 5.FullBorder: 和SideBorder类一样.
@@ -72,7 +72,7 @@ include::{design-pattern-code}/decorator/example2/SideBorder.java[tag=code]
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
 .FullBorder
 ----
-include::{design-pattern-code}/decorator/example2/FullBorder.java[tag=code]
+include::{java-code}/decorator/example2/FullBorder.java[tag=code]
 ----
 
 6.main
@@ -80,7 +80,7 @@ include::{design-pattern-code}/decorator/example2/FullBorder.java[tag=code]
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
 .Test
 ----
-include::{design-pattern-code}/decorator/example2/Test.java[tag=code]
+include::{java-code}/decorator/example2/Test.java[tag=code]
 ----
 
 7.result

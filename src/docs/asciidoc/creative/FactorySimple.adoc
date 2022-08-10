@@ -1,0 +1,78 @@
+[[factory-simple]]
+= 简单工厂模式
+
+简单工厂模式,又称为静态工厂模式.是不同于工厂方法模式的一种特殊实现.
+
+在有的地方,简单工厂模式往往作为普通工厂模式的一个特例.
+
+就是建立一个工厂类,根据传入的参量决定创建出哪一种产品类的实例.首先看下关系图:
+
+image::{oss-images}/design-pattern-factory-simple.png[]
+
+从上图中可以看出，简单工厂模式设计到工厂角色，抽象产品角色和具体产品角色等三个角色
+
+* 工厂类角色（Creator）:工厂方法模式的核心，工厂类在客户端的调用下直接创建产品对象。它往往由一个具体的 Java 类实现
+* 抽象产品角色（Product）：由工厂模式所创建的对象的父类，或他们共同拥有的接口。可以由一个 Java 接口或抽象类实现
+* 具体产品角色（Concrete Product）：工厂模式创建的任何对象都是这个角色的实例，一般由一个具体 Java 类实现。
+
+[[factory-simple-impl]]
+== 实现
+
+使用简单工厂模式实现发送信息的功能。UML 图 如下：
+
+image::{oss-images}/design-pattern-factory-simple-impl.png[]
+
+1.首先,创建共同的接口
+
+[source,java,indent=0,subs="verbatim,quotes",role="primary"]
+.Java
+----
+include::{java-code}/factory/Sender.java[tag=code]
+----
+
+2.创建实现类
+
+[source,java,indent=0,subs="verbatim,quotes",role="primary"]
+.MailSender
+----
+include::{java-code}/factory/MailSender.java[tag=code]
+----
+.SmsSender
+[source,kotlin,indent=0,subs="verbatim,quotes",role="secondary"]
+----
+include::{java-code}/factory/SmsSender.java[tag=code]
+----
+
+3.建工厂类
+
+[source,java,indent=0,subs="verbatim,quotes",role="primary"]
+.SendFactory
+----
+include::{java-code}/factory/simple/SendFactory.java[tag=code]
+----
+
+4.测试
+
+[source,java,indent=0,subs="verbatim,quotes",role="primary"]
+.FactoryTest
+----
+include::{java-code}/factory/simple/FactoryTest.java[tag=code]
+----
+
+5.结果
+
+[source,java,indent=0,subs="verbatim,quotes",role="primary"]
+.result
+----
+输出: this is sms sender!
+----
+
+[[factory-simple-other]]
+== 与其他模式的关系
+
+[[factory-simple-advantage]]
+== 简单工厂方法的优缺点
+
+优点:: 根据客户端的选择条件动态的实例化相关的类,对客户端来说,去除了与具体产品的依赖.所以说,简单工厂模式适用于业务简单的情况下或者具体产品很少增加的情况.在上面示例中,如果传入的字符串有误,则不能正确的创建对象.简单工厂模式的最大优点就是在于工厂类中包含了必要的逻辑判断.
+
+缺点:: 但是,它也有一个巨大的缺陷,还记得我们说过的设计模式的七大原则吗? 如果我们要加一个新的功能, 就要在工厂类的分支条件中加一次判断,这违背了 "开闭原则" .那么该怎么做?

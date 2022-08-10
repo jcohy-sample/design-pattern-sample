@@ -27,17 +27,17 @@ image::{oss-images}/design-memento.png[]
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
 .Original
 ----
-include::{design-pattern-code}/memento/example2/Original.java[tag=code]
+include::{java-code}/memento/example2/Original.java[tag=code]
 ----
 .Memento
 [source,kotlin,indent=0,subs="verbatim,quotes",role="secondary"]
 ----
-include::{design-pattern-code}/memento/example2/Memento.java[tag=code]
+include::{java-code}/memento/example2/Memento.java[tag=code]
 ----
 .Storage
 [source,kotlin,indent=0,subs="verbatim,quotes",role="secondary"]
 ----
-include::{design-pattern-code}/memento/example2/Storage.java[tag=code]
+include::{java-code}/memento/example2/Storage.java[tag=code]
 ----
 
 测试:
@@ -45,7 +45,7 @@ include::{design-pattern-code}/memento/example2/Storage.java[tag=code]
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
 .Test
 ----
-include::{design-pattern-code}/memento/example2/Test.java[tag=code]
+include::{java-code}/memento/example2/Test.java[tag=code]
 ----
 
 result:
@@ -62,7 +62,7 @@ result:
 
 [[design-memento-java]]
 == Java语言中备忘录模式
-        
+
 *  java.util.Date
 *  java.io.Serializable
 *  javax.faces.component.StateHolder

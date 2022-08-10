@@ -43,7 +43,7 @@ image::{oss-images}/design-state.png[]
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
 .State
 ----
-include::{design-pattern-code}/state/State.java[tag=code]
+include::{java-code}/state/State.java[tag=code]
 ----
 
 2、实现
@@ -51,12 +51,12 @@ include::{design-pattern-code}/state/State.java[tag=code]
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
 .DayState
 ----
-include::{design-pattern-code}/state/DayState.java[tag=code]
+include::{java-code}/state/DayState.java[tag=code]
 ----
 .NightState
 [source,kotlin,indent=0,subs="verbatim,quotes",role="secondary"]
 ----
-include::{design-pattern-code}/state/NightState.java[tag=code]
+include::{java-code}/state/NightState.java[tag=code]
 ----
 
 3、Context
@@ -64,7 +64,7 @@ include::{design-pattern-code}/state/NightState.java[tag=code]
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
 .Context
 ----
-include::{design-pattern-code}/state/Context.java[tag=code]
+include::{java-code}/state/Context.java[tag=code]
 ----
 
 4、SafeFrame
@@ -72,7 +72,7 @@ include::{design-pattern-code}/state/Context.java[tag=code]
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
 .SafeFrame
 ----
-include::{design-pattern-code}/state/SafeFrame.java[tag=code]
+include::{java-code}/state/SafeFrame.java[tag=code]
 ----
 
 5、Client
@@ -80,7 +80,7 @@ include::{design-pattern-code}/state/SafeFrame.java[tag=code]
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
 .Client
 ----
-include::{design-pattern-code}/state/Client.java[tag=code]
+include::{java-code}/state/Client.java[tag=code]
 ----
 
 [[design-state-java]]

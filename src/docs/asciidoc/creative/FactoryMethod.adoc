@@ -1,0 +1,73 @@
+[[factory-method]]
+= 工厂方法模式
+
+工厂方法模式是对简单工厂模式的进一步抽象和推广，根据依赖倒转原则,我们把核心工厂类抽象出一个接口,这个接口只有一个方法,就是创建抽象产品的工厂方法，核心类将不再负责所有的产品的创建。然后,所有要生产具体类的去实现这个接口，将具体的产品的创建交给子类创建。这样,我们要新加功能的时候,只需要增加相应的产品类和一个工厂类就可以了.
+
+由于使用多态性，工厂方法模式保持简单工厂模式的优点，同时又克服了它的缺点。
+
+image::{oss-images}/design-pattern-factory-method.png[]
+
+从上图中可以看出，使用工厂模式涉及以下角色
+
+* 抽象产品角色（Product）：由工厂模式所创建的对象的父类，或他们共同拥有的接口。可以由一个 Java 接口或抽象类实现
+* 具体产品角色（Concrete Product）：工厂模式创建的任何对象都是这个角色的实例，一般由一个具体 Java 类实现。
+* 抽象工厂角色（Creator）：声明工厂方法,该方法返回一个 `Product` 类型的对象.也可以定义一个工厂方法的默认实现,它返回一个默认的 `Product` 接口的具体实现对象。这个角色通常由 Java 接口或抽象类实现。
+* 具体工厂角色（）：实现了抽象工厂接口的具体实现类。具体工厂角色含有与应用密切相关的逻辑，并受到应用程序的调用以创建产品对象。(在简单工厂模式中没有这一角色)
+
+[[factory-method-impl]]
+== 实现
+
+我们来扩展一下简单工厂模式中的 <<factory-simple-impl,示例>>
+
+image::{oss-images}/design-pattern-factory-method-impl.png[]
+
+上面例子的一二步不变,创建共同的接口和实现类.
+
+3.新建一个接口,提供创建具体工厂类
+
+[source,java,indent=0,subs="verbatim,quotes",role="primary"]
+.Provider
+----
+include::{java-code}/factory/method/Provider.java[tag=code]
+----
+
+4.创建两个工厂类,实现这个接口
+
+[source,java,indent=0,subs="verbatim,quotes",role="primary"]
+.SendMailFactory
+----
+include::{java-code}/factory/method/SendMailFactory.java[tag=code]
+----
+.SendSmsFactory
+[source,kotlin,indent=0,subs="verbatim,quotes",role="secondary"]
+----
+include::{java-code}/factory/method/SendSmsFactory.java[tag=code]
+----
+
+5、测试
+
+[source,java,indent=0,subs="verbatim,quotes",role="primary"]
+.Test2
+----
+include::{java-code}/factory/method/FactoryTest.java[tag=code]
+----
+
+6.结果
+
+[source,java,indent=0,subs="verbatim,quotes",role="primary"]
+.result
+----
+输出: this is mail sender!
+----
+
+[[factory-method-other]]
+== 与其他模式的关系
+
+[[factory-method-advantage]]
+== 简单工厂方法的优缺点
+
+优点:: 工厂模式降低了客户端程序与产品对象的耦合度,使用多态.保持了简单工厂的有点,克服了他的缺点.
+缺点:: 但是由于每增加一个 一个产品,就需要加一个产品工厂的类,增加了额外的开销.
+
+其实仔细观察就会发现,工厂方法模式实现时,客户端需要决定实现那一个工厂来实现运算类,选择判断的问题还是存在的,
+也就是说,工厂方法把简单工厂方法的内部逻辑判断转移到了客户端进行,你想要加功能,本来是修改工厂类的,而现在是修改客户端

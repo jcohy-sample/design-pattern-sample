@@ -13,7 +13,7 @@
 工厂模式分类:
 
 *  简单工厂模式：又称为静态工厂方法模式。简单工厂模式是由一个工厂对象决定创建出哪一种产品类的实例
-*  工厂法法：又称为多态工厂（Polymorphic Factory）模式或虚拟构造子（Virtual Constructor）模式
+*  工厂方法：又称为多态工厂（Polymorphic Factory）模式或虚拟构造子（Virtual Constructor）模式
 *  抽象工厂(工具箱模式)：又称为工具箱模式（Kit 或 Toolkit）模式
 
 工厂模式的好处:
@@ -29,129 +29,73 @@
 *  当一个类希望由它的子类来指定它所创建的对象的时候.
 *  当类将创建对象的职责委托给多个帮助子类中的某一个.并且你希望将那一个帮助子类是代理者这一信息局部化的时候.
 
-[[design-factory-simple]]
-== 简单工厂模式
+include::FactorySimple.adoc[leveloffset=+1]
 
-简单工厂模式,又称为静态工厂模式.是不同于工厂方法模式的一种特殊实现.
+include::FactoryMethod.adoc[leveloffset=+1]
 
-在有的地方,简单工厂模式往往作为普通工厂模式的一个特例.
+include::FactoryAbstract.adoc[leveloffset=+1]
 
-就是建立一个工厂类,根据传入的参量决定创建出哪一种产品类的实例.首先看下关系图:
+[[design-abstract-factory-summary]]
+== 总结
 
+工厂方法模式和抽象工厂模式不好分清楚,他们的区别如下:
 
-模式的核心就是工厂类,这个类含有必要的判断逻辑.
+* 工厂方法模式:
+** 一个抽象产品类,可以派生出多个具体产品类.
+** 一个抽象工厂类,可以派生出多个具体工厂类.
+** 每个具体工厂类只能创建一个具体产品类的实例.
+* 抽象工厂模式:
+** 多个抽象产品类,每个抽象产品类可以派生出多个具体产品类.
+** 一个抽象工厂类,可以派生出多个具体工厂类.
+** 每个具体工厂类可以创建多个具体产品类的实例,也就是创建的是一个产品线下的多个产品.
+* 区别:
+** 工厂方法模式只有一个抽象产品类,而抽象工厂模式有多个.
+** 工厂方法模式的具体工厂类只能创建一个具体产品类的实例,而抽象工厂模式可以创建多个.
+** 工厂方法创建 "一种" 产品,他的着重点在于"怎么创建",也就是说如果你开发,你的大量代码很可能围绕着这种产品的构造,初始化这些细节上面.也因为如此,类似的产品之间有很多可以复用的特征,
+所以会和模版方法相随.
+** 抽象工厂需要创建一些列产品,着重点在于"创建哪些"产品上,也就是说,如果你开发,你的主要任务是划分不同差异的产品线,并且尽量保持每条产品线接口一致,从而可以从同一个抽象工厂继承.
+** 对于 java 来说,你能见到的大部分抽象工厂模式都是这样的: --- 它的里面是一堆工厂方法,每个工厂方法返回某种类型的对象.
+比如说工厂可以生产鼠标和键盘.那么抽象工厂的实现类(它的某个具体子类)的对象都可以生产鼠标和键盘,但可能工厂 A 生产的是罗技的键盘和鼠标,工厂 B 是微软的.
+这样 A 和 B 就是工厂,对应于抽象工厂;每个工厂生产的鼠标和键盘就是产品,对应于工厂方法;用了工厂方法模式,你替换生成键盘的工厂方法,就可以把键盘从罗技换到微软.但是用了抽象工厂模式,你只要换家工厂,就可以同时替换鼠标和键盘一套.如果你要的产品有几十个,当然用抽象工厂模
+式一次替换全部最方便(这个工厂会替你用相应的工厂方法)所以说抽象工厂就像工厂,而工厂方法则像是工厂的一种产品生产线.
 
-[[design-factory-simple-impl]]
-=== 实现
+[[design-abstract-factory-qa]]
+== Q&A
 
-image::{oss-images}/design-factory1.png[]
+工厂模式不就是在不使用 `new` 操作符的情况下，将类实例化的吗？可为什么在具体实现时仍然使用了 `new` 操作符？:: 工厂模式把具体使用 `new` 操作符的细节包装起来。当然，只要程序是用 Java 语言写的，Java 语言的特性在细节里就一定会体现。
+有很多 Java 语言中的 API 提供一些返还新的 Java 对象的方法,能否举出两个这样的例子,请问他们是工厂方法模式吗?:: `toString()` 方法会返回一个 String 类型的对象,`clone()` 方法会返回与原对象类型相同的对象.但他们不是工厂方法模式,因为他们不能返还一个抽象类型.客户端事先都知道将要得到什么对象类型。** 换言之，并非每一个返还一个新的对象的方法都是工厂方法模式 **。
+工厂方法可不可以返还在另一个对象里实例化的一个对象?:: 不可以,工厂方法是创建型模式.其用意就是对对象创建过程的封装.虽然不一定每一次都返回一个新的对象 ,但是工厂方法所返回的都应该是在工厂角色中被实例化的对象。** 如果一个方法返还的对象是在另外一个对象中实例化的，那么这个方法就不是工厂方法 **。
+一个工厂方法必须返还一个新对象。如果返还的不是一个新的对象，就不符合工厂方法模式的描述。这句话对吗？:: 这是不对的，一个工厂方法可以通过登记自己所创建的产品对象来实现循环提供相同的一些产品对象的功能，在享元模式中，就是使用了这种工厂方法模式。** 换言之，一个工厂方法所提供的产品对象不一定每次都是新的。**
 
-1.首先,创建共同的接口
+[[design-abstract-factory-java]]
+== Java 语言中的应用
 
-[source,java,indent=0,subs="verbatim,quotes",role="primary"]
-.Java
-----
-include::{design-pattern-code}/factory/SimpleFactory/example2/Sender.java[tag=code]
-----
+* 简单工厂模式
+** java.text.DateFormat#getDateInstance()
+* 工厂方法模式
+** java.lang.Class#newInstance()
+** java.lang.Integer#valueOf(String) (Boolean, Byte, Character,Short, Long,Float 和 Double 与之类似)
+** java.lang.Class#forName()
+** java.lang.reflect.Array#newInstance()
+** java.lang.reflect.Constructor#newInstance()
+* 抽象工厂模式
+** java.util.Calendar#getInstance()
+** java.util.Arrays#asList()
+** java.util.ResourceBundle#getBundle()
+** java.net.URL#openConnection()
+** java.sql.DriverManager#getConnection()
+** java.sql.Connection#createStatement()
+** java.sql.Statement#executeQuery()
+** java.text.NumberFormat#getInstance()
+** java.lang.management.ManagementFactory (所有 getXXX()方法)
+** java.nio.charset.Charset#forName()
+** javax.xml.parsers.DocumentBuilderFactory#newInstance()
+** javax.xml.transform.TransformerFactory#newInstance()
+** javax.xml.xpath.XPathFactory#newInstance()
 
-2.创建实现类
+[[design-abstract-factory-expand]]
+== 扩展
 
-[source,java,indent=0,subs="verbatim,quotes",role="primary"]
-.MailSender
-----
-include::{design-pattern-code}/factory/SimpleFactory/example2/MailSender.java[tag=code]
-----
-.SmsSender
-[source,kotlin,indent=0,subs="verbatim,quotes",role="secondary"]
-----
-include::{design-pattern-code}/factory/SimpleFactory/example2/SmsSender.java[tag=code]
-----
+* 利用反射+工厂模式,可以解决避免分支判断的问题.
+* 工厂模式与单例模式,MVC 模式,亨元模式,备忘录模式等的关系与其发挥的作用.
 
-3.建工厂类
-
-[source,java,indent=0,subs="verbatim,quotes",role="primary"]
-.SendFactory
-----
-include::{design-pattern-code}/factory/SimpleFactory/example2/SendFactory.java[tag=code]
-----
-
-4.测试
-
-[source,java,indent=0,subs="verbatim,quotes",role="primary"]
-.FactoryTest
-----
-include::{design-pattern-code}/factory/SimpleFactory/example2/FactoryTest.java[tag=code]
-----
-
-5.结果
-
-[source,java,indent=0,subs="verbatim,quotes",role="primary"]
-.result
-----
-输出: this is sms sender!
-----
-
-在上面的方法中,如果传入的字符串有误,则不能正确的创建对象.简单工厂模式的最大优点就是在于工厂类中包含了必要的逻辑判断.
-根据客户端的选择条件动态的实例化相关的类,对客户端来说,去除了与具体产品的依赖.所以说,简单工厂模式适用于业务简单的情况下或者具体产品很少增加的情况.
-
-但是,它也有一个巨大的缺陷,还记得我们说过的设计模式的六大原则吗? 如果我们要加一个新的功能,
-就要在工厂类的分支条件中加一次判断,这违背了 "开闭原则" .那么该怎么做?
-
-[[design-factory-role]]
-== 工厂模式的角色
-
-image::{oss-images}/design-factory4.png[]
-
-*  Product:定义工厂方法所创建的对象的接口.
-*  ConcreteProduct: 实现 Product 接口.
-*  Creator:声明工厂方法,该方法返回一个 Product 类型的对象.也可以定义一个工厂方法的缺省实现,它返回一个缺省的 ConcretrProduct 对象.
-*  CreatorCreator:重定义一个工厂方法,以返回一个 ConcreteProduct 实例.(在简单工厂模式中没有这一角色)
-
-[[design-factory-template]]
-== 工厂方法模式(多态性工厂模式)
-
-*  接着上面的讲.工厂方法模式创建一个工厂接口和创建多个工厂实现类,这样一旦需要加入新的功能,直接增加新的 工厂类就可以了.下面看看是怎么实现的.先看一下这个关系图
-*  简单工厂模式转换成工厂模式.首先我们要知道在简单工厂中,工厂类和分支是耦合的,所以我们可以对它下手.
-
-根据依赖倒转原则,我们把工厂类抽象出一个接口,这个接口只有一个方法,就是创建抽象产品的工厂方法.然后,所有要 生产具体类的工厂去实现这个接口.这样,我们要新加功能的时候,只需要增加相应的功能类和一个工厂类就可以了.
-
-*  工厂模式降低了客户端程序与产品对象的耦合度,使用多态.保持了简单工厂的有点,克服了他的缺点.但是由于每增加一个 一个产品,就需要加一个产品工厂的类,增加了额外的开销.
-
-image::{oss-images}/design-factory2.png[]
-
-[[design-factory-template-impl]]
-=== 实现
-
-上面例子的一二步不变,创建共同的接口和实现类.
-
-3.新建一个接口,提供创建具体工厂类
-
-[source,java,indent=0,subs="verbatim,quotes",role="primary"]
-.Provider
-----
-include::{design-pattern-code}/factory/SimpleFactory/example2/Provider.java[tag=code]
-----
-
-4.创建两个工厂类,实现这个接口
-
-[source,java,indent=0,subs="verbatim,quotes",role="primary"]
-.SendMailFactory
-----
-include::{design-pattern-code}/factory/SimpleFactory/example2/SendMailFactory.java[tag=code]
-----
-.SendSmsFactory
-[source,kotlin,indent=0,subs="verbatim,quotes",role="secondary"]
-----
-include::{design-pattern-code}/factory/SimpleFactory/example2/SendSmsFactory.java[tag=code]
-----
-
-5、测试
-
-[source,java,indent=0,subs="verbatim,quotes",role="primary"]
-.Test2
-----
-include::{design-pattern-code}/factory/SimpleFactory/example2/Test2.java[tag=code]
-----
-
-其实仔细观察就会发现,工厂方法模式实现时,客户端需要决定实现那一个工厂来实现运算类,选择判断的问题还是存在的,
-也就是说,工厂方法把简单工厂方法的内部逻辑判断转移到了客户端进行,你想要加功能,本来是修改工厂类的,而现在是修改客户端

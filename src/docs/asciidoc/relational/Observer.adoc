@@ -31,7 +31,7 @@ image::{oss-images}/design-observer.png[]
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
 .Observer
 ----
-include::{design-pattern-code}/observer/Observer.java[tag=code]
+include::{java-code}/observer/Observer.java[tag=code]
 ----
 
 2、产生数值的抽象类,notifyObservers 告诉所有的 Observers 内容改变.
@@ -39,7 +39,7 @@ include::{design-pattern-code}/observer/Observer.java[tag=code]
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
 .NumberGenerator
 ----
-include::{design-pattern-code}/observer/NumberGenerator.java[tag=code]
+include::{java-code}/observer/NumberGenerator.java[tag=code]
 ----
 
 3、产生随机数
@@ -47,28 +47,28 @@ include::{design-pattern-code}/observer/NumberGenerator.java[tag=code]
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
 .RandomNumberGenerator
 ----
-include::{design-pattern-code}/observer/RandomNumberGenerator.java[tag=code]
+include::{java-code}/observer/RandomNumberGenerator.java[tag=code]
 ----
-                                
+
 4、实现Observer接口
 
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
 .GraphObserver
 ----
-include::{design-pattern-code}/observer/GraphObserver.java[tag=code]
+include::{java-code}/observer/GraphObserver.java[tag=code]
 ----
 .DigitObserver
 [source,kotlin,indent=0,subs="verbatim,quotes",role="secondary"]
 ----
-include::{design-pattern-code}/observer/DigitObserver.java[tag=code]
+include::{java-code}/observer/DigitObserver.java[tag=code]
 ----
-                                
+
 5.Client
 
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
 .Client
 ----
-include::{design-pattern-code}/observer/Client.java[tag=code]
+include::{java-code}/observer/Client.java[tag=code]
 ----
 
 6、result

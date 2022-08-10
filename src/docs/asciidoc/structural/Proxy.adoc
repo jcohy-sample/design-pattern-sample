@@ -35,7 +35,7 @@ image::{oss-images}/design-proxy.png[]
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
 .Subject
 ----
-include::{design-pattern-code}/proxy/example2/Subject.java[tag=code]
+include::{java-code}/proxy/example2/Subject.java[tag=code]
 ----
 
 2.RealSubject
@@ -43,7 +43,7 @@ include::{design-pattern-code}/proxy/example2/Subject.java[tag=code]
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
 .RealSubject
 ----
-include::{design-pattern-code}/proxy/example2/RealSubject.java[tag=code]
+include::{java-code}/proxy/example2/RealSubject.java[tag=code]
 ----
 
 3.Proxy
@@ -51,7 +51,7 @@ include::{design-pattern-code}/proxy/example2/RealSubject.java[tag=code]
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
 .Proxy
 ----
-include::{design-pattern-code}/proxy/example2/Proxy.java[tag=code]
+include::{java-code}/proxy/example2/Proxy.java[tag=code]
 ----
 
 4.Client
@@ -59,7 +59,7 @@ include::{design-pattern-code}/proxy/example2/Proxy.java[tag=code]
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
 .Client
 ----
-include::{design-pattern-code}/proxy/example2/Client.java[tag=code]
+include::{java-code}/proxy/example2/Client.java[tag=code]
 ----
 
 5.result
@@ -73,6 +73,6 @@ include::{design-pattern-code}/proxy/example2/Client.java[tag=code]
 
 [[design-proxy-java]]
 == Java语言中代理模式
-        
+
 *  java.lang.reflect.Proxy
 *  java.rmi.*

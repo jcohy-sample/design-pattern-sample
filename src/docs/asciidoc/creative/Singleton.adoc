@@ -40,7 +40,7 @@ image::{oss-images}/design-singleton.png[]
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
 .Java
 ----
-include::{design-pattern-code}/singleton/Singleton.java[tag=code]
+include::{java-code}/singleton/Singleton.java[tag=code]
 ----
 
 2、懒汉式单例
@@ -51,7 +51,7 @@ include::{design-pattern-code}/singleton/Singleton.java[tag=code]
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
 .Java
 ----
-include::{design-pattern-code}/singleton/Singleton2.java[tag=lazy1]
+include::{java-code}/singleton/Singleton2.java[tag=lazy1]
 ----
 
 [TIP]
@@ -62,7 +62,7 @@ include::{design-pattern-code}/singleton/Singleton2.java[tag=lazy1]
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
 .Java
 ----
-include::{design-pattern-code}/singleton/Singleton2.java[tag=lazy2]
+include::{java-code}/singleton/Singleton2.java[tag=lazy2]
 ----
 
 由于指令重排优化的存在,导致初始化 Singleton 和将对象地址赋给 instance 字段的顺序是不确定的. 在某个线程创建单例对象时,在构造方法被调用之前,就为该对象分配了内存空间并将对象的字段设置为默认值.
@@ -75,7 +75,7 @@ include::{design-pattern-code}/singleton/Singleton2.java[tag=lazy2]
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
 .Java
 ----
-include::{design-pattern-code}/singleton/Singleton3.java[tag=code]
+include::{java-code}/singleton/Singleton3.java[tag=code]
 ----
 
 4、内部类单例
@@ -85,7 +85,7 @@ include::{design-pattern-code}/singleton/Singleton3.java[tag=code]
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
 .Java
 ----
-include::{design-pattern-code}/singleton/Singleton4.java[tag=code]
+include::{java-code}/singleton/Singleton4.java[tag=code]
 ----
 
 5、枚举单例
@@ -95,7 +95,7 @@ include::{design-pattern-code}/singleton/Singleton4.java[tag=code]
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
 .Java
 ----
-include::{design-pattern-code}/singleton/Singleton5.java[tag=code]
+include::{java-code}/singleton/Singleton5.java[tag=code]
 ----
 
 [[design-singleton-qa]]

@@ -32,7 +32,7 @@ image::{oss-images}/design-flyweight1.png[]
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
 .Java
 ----
-include::{design-pattern-code}/flyweight/BigChar.java[tag=code]
+include::{java-code}/flyweight/BigChar.java[tag=code]
 ----
 
 2、BigString
@@ -40,7 +40,7 @@ include::{design-pattern-code}/flyweight/BigChar.java[tag=code]
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
 .Java
 ----
-include::{design-pattern-code}/flyweight/BigString.java[tag=code]
+include::{java-code}/flyweight/BigString.java[tag=code]
 ----
 
 3、BigCharFactory
@@ -48,7 +48,7 @@ include::{design-pattern-code}/flyweight/BigString.java[tag=code]
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
 .Java
 ----
-include::{design-pattern-code}/flyweight/BigCharFactory.java[tag=code]
+include::{java-code}/flyweight/BigCharFactory.java[tag=code]
 ----
 
 4、Client
@@ -56,7 +56,7 @@ include::{design-pattern-code}/flyweight/BigCharFactory.java[tag=code]
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
 .Java
 ----
-include::{design-pattern-code}/flyweight/Client.java[tag=code]
+include::{java-code}/flyweight/Client.java[tag=code]
 ----
 
 5、result

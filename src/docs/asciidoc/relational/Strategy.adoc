@@ -28,33 +28,33 @@ image::{oss-images}/design-strategy.png[]
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
 .Strategy
 ----
-include::{design-pattern-code}/strategy/Strategy.java[tag=code]
+include::{java-code}/strategy/Strategy.java[tag=code]
 ----
-                   
+
 2.Context
 
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
 .Context
 ----
-include::{design-pattern-code}/strategy/Context.java[tag=code]
+include::{java-code}/strategy/Context.java[tag=code]
 ----
-                    
+
 3.StrategyImpl
 
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
 .StrategyImplA
 ----
-include::{design-pattern-code}/strategy/StrategyImplA.java[tag=code]
+include::{java-code}/strategy/StrategyImplA.java[tag=code]
 ----
 .StrategyImplB
 [source,kotlin,indent=0,subs="verbatim,quotes",role="secondary"]
 ----
-include::{design-pattern-code}/strategy/StrategyImplB.java[tag=code]
+include::{java-code}/strategy/StrategyImplB.java[tag=code]
 ----
 .StrategyImplC
 [source,kotlin,indent=0,subs="verbatim,quotes",role="secondary"]
 ----
-include::{design-pattern-code}/strategy/StrategyImplC.java[tag=code]
+include::{java-code}/strategy/StrategyImplC.java[tag=code]
 ----
 
 4.Client
@@ -62,7 +62,7 @@ include::{design-pattern-code}/strategy/StrategyImplC.java[tag=code]
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
 .Client
 ----
-include::{design-pattern-code}/strategy/Test.java[tag=code]
+include::{java-code}/strategy/Test.java[tag=code]
 ----
 
 5.result
@@ -77,7 +77,7 @@ include::{design-pattern-code}/strategy/Test.java[tag=code]
 
 [[design-strategy-java]]
 == Java语言中策略模式
-       
+
 *  java.util.Comparator#compare()
 *  javax.servlet.http.HttpServlet
 *  javax.servlet.Filter#doFilter()

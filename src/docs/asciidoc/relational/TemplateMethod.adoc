@@ -32,7 +32,7 @@ image::{oss-images}/design-template-method.png[]
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
 .AbstractDisplay
 ----
-include::{design-pattern-code}/templatemethod/AbstractDisplay.java[tag=code]
+include::{java-code}/templatemethod/AbstractDisplay.java[tag=code]
 ----
 
 2.实现
@@ -40,12 +40,12 @@ include::{design-pattern-code}/templatemethod/AbstractDisplay.java[tag=code]
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
 .CharDisplay
 ----
-include::{design-pattern-code}/templatemethod/CharDisplay.java[tag=code]
+include::{java-code}/templatemethod/CharDisplay.java[tag=code]
 ----
 .StringDisplay
 [source,kotlin,indent=0,subs="verbatim,quotes",role="secondary"]
 ----
-include::{design-pattern-code}/templatemethod/StringDisplay.java[tag=code]
+include::{java-code}/templatemethod/StringDisplay.java[tag=code]
 ----
 
 3.Client
@@ -53,7 +53,7 @@ include::{design-pattern-code}/templatemethod/StringDisplay.java[tag=code]
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
 .Client
 ----
-include::{design-pattern-code}/templatemethod/Client.java[tag=code]
+include::{java-code}/templatemethod/Client.java[tag=code]
 ----
 
 4.result

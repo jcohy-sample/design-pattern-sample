@@ -30,7 +30,7 @@ image::{oss-images}/design-responsibility.png[]
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
 .Trouble
 ----
-include::{design-pattern-code}/responsibility/Trouble.java[tag=code]
+include::{java-code}/responsibility/Trouble.java[tag=code]
 ----
 
 2.解决问题的接口
@@ -38,7 +38,7 @@ include::{design-pattern-code}/responsibility/Trouble.java[tag=code]
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
 .Support
 ----
-include::{design-pattern-code}/responsibility/Support.java[tag=code]
+include::{java-code}/responsibility/Support.java[tag=code]
 ----
 
 3.具体解决者
@@ -46,17 +46,17 @@ include::{design-pattern-code}/responsibility/Support.java[tag=code]
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
 .NoSupport
 ----
-include::{design-pattern-code}/responsibility/NoSupport.java[tag=code]
+include::{java-code}/responsibility/NoSupport.java[tag=code]
 ----
 .OddSupport
 [source,kotlin,indent=0,subs="verbatim,quotes",role="secondary"]
 ----
-include::{design-pattern-code}/responsibility/OddSupport.java[tag=code]
+include::{java-code}/responsibility/OddSupport.java[tag=code]
 ----
 .SpecialSupport
 [source,kotlin,indent=0,subs="verbatim,quotes",role="secondary"]
 ----
-include::{design-pattern-code}/responsibility/SpecialSupport.java[tag=code]
+include::{java-code}/responsibility/SpecialSupport.java[tag=code]
 ----
 
 4.Client
@@ -64,7 +64,7 @@ include::{design-pattern-code}/responsibility/SpecialSupport.java[tag=code]
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
 .Client
 ----
-include::{design-pattern-code}/responsibility/Client.java[tag=code]
+include::{java-code}/responsibility/Client.java[tag=code]
 ----
 
 5.result

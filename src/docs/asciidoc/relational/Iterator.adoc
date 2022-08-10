@@ -34,7 +34,7 @@ image::{oss-images}/design-iterator.png[iterator]
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
 .Book
 ----
-include::{design-pattern-code}/iterator/Book.java[tag=code]
+include::{java-code}/iterator/Book.java[tag=code]
 ----
 
 2、定义接口
@@ -42,7 +42,7 @@ include::{design-pattern-code}/iterator/Book.java[tag=code]
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
 .Aggregate
 ----
-include::{design-pattern-code}/iterator/Aggregate.java[tag=code]
+include::{java-code}/iterator/Aggregate.java[tag=code]
 ----
 
 3、实现
@@ -50,15 +50,15 @@ include::{design-pattern-code}/iterator/Aggregate.java[tag=code]
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
 .BookShelf
 ----
-include::{design-pattern-code}/iterator/BookShelf.java[tag=code]
+include::{java-code}/iterator/BookShelf.java[tag=code]
 ----
-                    
+
 4、执行递增,遍历的接口
 
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
 .Iterator
 ----
-include::{design-pattern-code}/iterator/Iterator.java[tag=code]
+include::{java-code}/iterator/Iterator.java[tag=code]
 ----
 
 5、实现
@@ -66,7 +66,7 @@ include::{design-pattern-code}/iterator/Iterator.java[tag=code]
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
 .BookShelfIterator
 ----
-include::{design-pattern-code}/iterator/BookShelfIterator.java[tag=code]
+include::{java-code}/iterator/BookShelfIterator.java[tag=code]
 ----
 
 6.Client
@@ -74,7 +74,7 @@ include::{design-pattern-code}/iterator/BookShelfIterator.java[tag=code]
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
 .Client
 ----
-include::{design-pattern-code}/iterator/Client.java[tag=code]
+include::{java-code}/iterator/Client.java[tag=code]
 ----
 
 7.result

@@ -32,7 +32,7 @@ image::{oss-images}/design-facade.png[]
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
 .Computer
 ----
-include::{design-pattern-code}/facade/Computer.java[tag=code]
+include::{java-code}/facade/Computer.java[tag=code]
 ----
 
 2.System(cpu,memory,disk)
@@ -40,25 +40,25 @@ include::{design-pattern-code}/facade/Computer.java[tag=code]
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
 .Cpu
 ----
-include::{design-pattern-code}/facade/Cpu.java[tag=code]
+include::{java-code}/facade/Cpu.java[tag=code]
 ----
 .Memory
 [source,kotlin,indent=0,subs="verbatim,quotes",role="secondary"]
 ----
-include::{design-pattern-code}/facade/Memory.java[tag=code]
+include::{java-code}/facade/Memory.java[tag=code]
 ----
 .Disk
 [source,kotlin,indent=0,subs="verbatim,quotes",role="secondary"]
 ----
-include::{design-pattern-code}/facade/Disk.java[tag=code]
+include::{java-code}/facade/Disk.java[tag=code]
 ----
-                    
+
 3.client
 
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
 .Client
 ----
-include::{design-pattern-code}/facade/Client.java[tag=code]
+include::{java-code}/facade/Client.java[tag=code]
 ----
 
 4.result

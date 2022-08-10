@@ -32,7 +32,7 @@ image::{oss-images}/design-mediator.png[]
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
 .Colleague
 ----
-include::{design-pattern-code}/mediator/Colleague.java[tag=code]
+include::{java-code}/mediator/Colleague.java[tag=code]
 ----
 
 2、创建接口实现
@@ -40,17 +40,17 @@ include::{design-pattern-code}/mediator/Colleague.java[tag=code]
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
 .ColleagueButton
 ----
-include::{design-pattern-code}/mediator/ColleagueButton.java[tag=code]
+include::{java-code}/mediator/ColleagueButton.java[tag=code]
 ----
 .ColleagueCheckbox
 [source,kotlin,indent=0,subs="verbatim,quotes",role="secondary"]
 ----
-include::{design-pattern-code}/mediator/ColleagueCheckbox.java[tag=code]
+include::{java-code}/mediator/ColleagueCheckbox.java[tag=code]
 ----
 .ColleagueTextFiled
 [source,kotlin,indent=0,subs="verbatim,quotes",role="secondary"]
 ----
-include::{design-pattern-code}/mediator/ColleagueTextFiled.java[tag=code]
+include::{java-code}/mediator/ColleagueTextFiled.java[tag=code]
 ----
 
 3、创建 Mediator 接口,表示"顾问"的接口
@@ -58,7 +58,7 @@ include::{design-pattern-code}/mediator/ColleagueTextFiled.java[tag=code]
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
 .Mediator
 ----
-include::{design-pattern-code}/mediator/Mediator.java[tag=code]
+include::{java-code}/mediator/Mediator.java[tag=code]
 ----
 
 4、创建 LoginFrame
@@ -66,7 +66,7 @@ include::{design-pattern-code}/mediator/Mediator.java[tag=code]
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
 .LoginFrame
 ----
-include::{design-pattern-code}/mediator/LoginFrame.java[tag=code]
+include::{java-code}/mediator/LoginFrame.java[tag=code]
 ----
 
 5、Client
@@ -74,7 +74,7 @@ include::{design-pattern-code}/mediator/LoginFrame.java[tag=code]
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
 .Client
 ----
-include::{design-pattern-code}/mediator/Client.java[tag=code]
+include::{java-code}/mediator/Client.java[tag=code]
 ----
 
 [[design-mediator-qa]]

@@ -30,7 +30,7 @@ image::{oss-images}/design-command1.png[]
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
 .Command
 ----
-include::{design-pattern-code}/command/Command.java[tag=code]
+include::{java-code}/command/Command.java[tag=code]
 ----
 
 2.实现
@@ -38,12 +38,12 @@ include::{design-pattern-code}/command/Command.java[tag=code]
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
 .MacroCommand
 ----
-include::{design-pattern-code}/command/MacroCommand.java[tag=code]
+include::{java-code}/command/MacroCommand.java[tag=code]
 ----
 .DrawCommand
 [source,kotlin,indent=0,subs="verbatim,quotes",role="secondary"]
 ----
-include::{design-pattern-code}/command/DrawCommand.java[tag=code]
+include::{java-code}/command/DrawCommand.java[tag=code]
 ----
 
 4、绘制对象
@@ -51,7 +51,7 @@ include::{design-pattern-code}/command/DrawCommand.java[tag=code]
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
 .Drawable
 ----
-include::{design-pattern-code}/command/Drawable.java[tag=code]
+include::{java-code}/command/Drawable.java[tag=code]
 ----
 
 5、实现
@@ -59,7 +59,7 @@ include::{design-pattern-code}/command/Drawable.java[tag=code]
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
 .DrawCanvas
 ----
-include::{design-pattern-code}/command/DrawCanvas.java[tag=code]
+include::{java-code}/command/DrawCanvas.java[tag=code]
 ----
 
 6、Client
@@ -67,7 +67,7 @@ include::{design-pattern-code}/command/DrawCanvas.java[tag=code]
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
 .Client
 ----
-include::{design-pattern-code}/command/Client.java[tag=code]
+include::{java-code}/command/Client.java[tag=code]
 ----
 
 7、result
@@ -79,6 +79,6 @@ image::{oss-images}/design-command2.png[]
 
 [[design-command-java]]
 == Java语言中命令模式
-       
+
 *  java.lang.Runnable
 *  javax.swing.Action

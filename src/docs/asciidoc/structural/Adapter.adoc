@@ -37,7 +37,7 @@ image::{oss-images}/design-adapter1.png[]
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
 .Adaptee
 ----
-include::{design-pattern-code}/adapter/Adaptee.java[tag=code]
+include::{java-code}/adapter/Adaptee.java[tag=code]
 ----
 
 Target 目标接口
@@ -45,25 +45,25 @@ Target 目标接口
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
 .Target
 ----
-include::{design-pattern-code}/adapter/Target.java[tag=code]
+include::{java-code}/adapter/Target.java[tag=code]
 ----
 
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
 .ConcreteTarget
 ----
-include::{design-pattern-code}/adapter/ConcreteTarget.java[tag=code]
+include::{java-code}/adapter/ConcreteTarget.java[tag=code]
 ----
 
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
 .Adapter
 ----
-include::{design-pattern-code}/adapter/Adapter.java[tag=code]
+include::{java-code}/adapter/Adapter.java[tag=code]
 ----
 
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
 .Client
 ----
-include::{design-pattern-code}/adapter/Test.java[tag=code]
+include::{java-code}/adapter/Test.java[tag=code]
 ----
 
 [[design-adapter-qa]]

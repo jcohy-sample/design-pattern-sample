@@ -30,7 +30,7 @@ image::{oss-images}/design-builder1.png[]
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
 .Builder
 ----
-include::{design-pattern-code}/builder/Builder.java[tag=code]
+include::{java-code}/builder/Builder.java[tag=code]
 ----
 
 2、创建 Director
@@ -38,7 +38,7 @@ include::{design-pattern-code}/builder/Builder.java[tag=code]
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
 .Director
 ----
-include::{design-pattern-code}/builder/Director.java[tag=code]
+include::{java-code}/builder/Director.java[tag=code]
 ----
 
 3、创建 Builder 的实现类 TextBuilder,HtmlBuilder
@@ -46,12 +46,12 @@ include::{design-pattern-code}/builder/Director.java[tag=code]
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
 .TextBuilder
 ----
-include::{design-pattern-code}/builder/TextBuilder.java[tag=code]
+include::{java-code}/builder/TextBuilder.java[tag=code]
 ----
 .HtmlBuilder
 [source,java,indent=0,subs="verbatim,quotes",role="secondary"]
 ----
-include::{design-pattern-code}/builder/HtmlBuilder.java[tag=code]
+include::{java-code}/builder/HtmlBuilder.java[tag=code]
 ----
 
 4、创建客户端程序
@@ -59,7 +59,7 @@ include::{design-pattern-code}/builder/HtmlBuilder.java[tag=code]
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
 .Test
 ----
-include::{design-pattern-code}/builder/Test.java[tag=code]
+include::{java-code}/builder/Test.java[tag=code]
 ----
 
 [[design-builder-qa]]

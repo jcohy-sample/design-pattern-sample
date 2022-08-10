@@ -38,7 +38,7 @@ image::{oss-images}/design-prototype.png[]
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
 .Prototype
 ----
-include::{design-pattern-code}/prototype/Prototype.java[tag=code]
+include::{java-code}/prototype/Prototype.java[tag=code]
 ----
 
 2.ConcretePrototype
@@ -46,7 +46,7 @@ include::{design-pattern-code}/prototype/Prototype.java[tag=code]
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
 .ConcretePrototype
 ----
-include::{design-pattern-code}/prototype/ConcretePrototype.java[tag=code]
+include::{java-code}/prototype/ConcretePrototype.java[tag=code]
 ----
 
 3.Client
@@ -54,7 +54,7 @@ include::{design-pattern-code}/prototype/ConcretePrototype.java[tag=code]
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
 .Test
 ----
-include::{design-pattern-code}/prototype/Test.java[tag=code]
+include::{java-code}/prototype/Test.java[tag=code]
 ----
 
 java中 `clone()` 方法做的是浅复制.要实现深复制,需要采用流的形式读入当前对象的二进制输入,再写出二进制数据对应的对象.
