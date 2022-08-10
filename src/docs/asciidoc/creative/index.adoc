@@ -3,9 +3,7 @@
 
 include::Factory.adoc[leveloffset=+1]
 
-//include::FactoryAbstract.adoc[leveloffset=+1]
-//
-//include::Singleton.adoc[leveloffset=+1]
+include::Singleton.adoc[leveloffset=+1]
 //
 //include::Builder.adoc[leveloffset=+1]
 //
