@@ -91,9 +91,16 @@ image::{oss-images}/design-real.png[]
 |降低代码耦合
 |===
 
+UML 中常用箭头含义
+
+image::{oss-images}/design-pattern-uml-symbol.png[]
+
 include::creative/index.adoc[leveloffset=+1]
 
 //include::relational/index.adoc[leveloffset=+1]
 //
 //include::structural/index.adoc[leveloffset=+1]
 
+== 参考文献
+
+* Java 与模式

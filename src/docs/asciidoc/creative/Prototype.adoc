@@ -4,13 +4,21 @@
 [[design-prototype-overview]]
 == 概述
 
-讲一个对象作为原型,对其进行克隆,复制.产生一个与原对象类似的新对象.在Java中,复制对象是通过clone()实现的.
+讲一个对象作为原型,对其进行克隆,复制.产生一个与原对象类似的新对象.在 Java 中,复制对象是通过 clone() 实现的.
 
 这里涉及到对象的深复制和浅复制.什么是深复制,浅复制?
 
 浅复制: 将一个对象复制后,基本数据类型的变量都会重新创建,而引用类型,还是原对象所指向的.
 
 深复制: 将一个对象复制后,不论是基本数据类型还是引用类型都会重新创建.
+
+克隆方法满足以下的描述。
+
+. 对任何的对象 x， 都有 x.clone() != x，克隆对象和原对象不是同一个对象
+. 对任何的对象 x， 都有 x.clone().getClass() == x.getClass()。克隆对象与原对象的类型一致
+. 如果对象 x 的 equals() 方法定义恰当的话，那么 x.clone.equals(x) 应当是成立的。
+
+在 Java 语言的 API 中，凡事提供了 clone() 方法的类，都满足上面的这些条件。一般来说，上面的三个条件前两个是必须，而第三个是可选的。推荐尽量还是遵守所有的条件。
 
 [[design-prototype-sign]]
 == 适用性
@@ -23,50 +31,113 @@
 *  希望把框架和所产生的对象实例分开时.
 
 [[design-prototype-role]]
-== 原型模式的参与者
+== 原型模式的角色
 
-image::{oss-images}/design-prototype.png[]
+image::{oss-images}/design-pattern-prototype.png[]
 
-*  Prototype(原型):Prototype 规定复制对象实例建立新对象实例的方法.
-*  ConcretePrototype:实际上实现先复制对象实例再建立新对象实例的方法.
-*  Client:利用复制对象的方法以产生另一个新对象实例
+本模式涉及三个角色
 
-[[design-prototype-impl]]
-== 实现
-1.声明一个克隆自身的接口(Prototype)
+* 抽象原型角色（Prototype）:这是一个抽象角色，通常由一个 Java 接口或 Java 抽象类实现。此角色给出所有的具体原型类所需的接口.
+* 具体原型角色（ConcretePrototype）:被复制的对象，此角色需要实现抽象的原型角色所要求的接口.
+* 客户角色（Client）:客户类提出创建对象的请求
+
+原型模式还有另外一种形式，即新增了一个原型管理器角色,主要用来记录每一个被创建的对象。也称为登记式原型模式。结构图如下：
+
+image::{oss-images}/design-pattern-prototype-manager.png[]
+
+如果创建的原型对象数目较少而且比较固定的话，可以采取第一种形式。在这种情况下，原型对象的引用由客户端自己保存。
+
+如果要创建的原型对象数目不固定的话，可以采取第二种形式。在这种情况下，客户端不保存对原型对象的引用，这个任务交给管理员对象。在复制一个原型对象之前，客户端可以查看管理员对象是否已经有一个满足要求的原型对象。如果有，直接从管理员类取得这个对象的引用。如果没有，客户端就需要自行复制此原型对象。
+
+[[design-prototype-simple-impl]]
+== 简单原型模式实现
+
+1.创建声明一个克隆自身的接口(Prototype)
 
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
 .Prototype
 ----
-include::{java-code}/prototype/Prototype.java[tag=code]
+include::{java-code}/prototype/simple/Prototype.java[tag=code]
 ----
 
-2.ConcretePrototype
+2.创建 ConcretePrototype
 
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
 .ConcretePrototype
 ----
-include::{java-code}/prototype/ConcretePrototype.java[tag=code]
+include::{java-code}/prototype/simple/ConcretePrototype.java[tag=code]
 ----
 
-3.Client
+3.创建 Client
 
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
 .Test
 ----
-include::{java-code}/prototype/Test.java[tag=code]
+include::{java-code}/prototype/simple/Client.java[tag=code]
 ----
 
-java中 `clone()` 方法做的是浅复制.要实现深复制,需要采用流的形式读入当前对象的二进制输入,再写出二进制数据对应的对象.
+Java 中 `clone()` 方法做的是浅复制.要实现深复制,需要采用流的形式读入当前对象的二进制输入,再写出二进制数据对应的对象.
+
+[[design-prototype-form-impl]]
+== 登记式原型模式实现
+
+1. 创建声明一个克隆自身的接口(Prototype)
+
+[source,java,indent=0,subs="verbatim,quotes",role="primary"]
+.Prototype
+----
+include::{java-code}/prototype/form/Prototype.java[tag=code]
+----
+
+2.创建 ConcretePrototype
+
+[source,java,indent=0,subs="verbatim,quotes",role="primary"]
+.ConcretePrototype
+----
+include::{java-code}/prototype/form/ConcretePrototype.java[tag=code]
+----
+
+3.创建 PrototypeManager
+
+[source,java,indent=0,subs="verbatim,quotes",role="primary"]
+.ConcretePrototype
+----
+include::{java-code}/prototype/form/PrototypeManager.java[tag=code]
+----
+
+4.创建 Client
+
+[source,java,indent=0,subs="verbatim,quotes",role="primary"]
+.Test
+----
+include::{java-code}/prototype/form/Client.java[tag=code]
+----
+
+[[design-prototype-other]]
+== 与其他模式的关系
+
+[[design-prototype-advantage]]
+== 原型模式的优缺点
+
+原型模式具有以下优点：
+
+* 原型模式允许动态的增加或减少产品类，由于创建产品类实例的方法是产品类内部具有的，因此，增加新产品对整个结构没有影响
+* 原型模式提供简化的创建结构。工厂方法模式常常需要一个与产品类等级结构相同的等级结构，而原型模式就不需要这样
+* 具有给一个应用软件动态加载新功能的能力。例如，一个分析 Web 服务器记录文件的应用软件，针对每一种记录文件格式，都可以由一个相应的 "格式类" 负责。如果出现了应用软件所不支持的新的 Web 服务器，只需要提供一个 "格式类" 的克隆，并在客户端登记即可，而不必给每个软件的用户提供一个全新的软件包
+* 产品类不需要非得有任何事先确定的等级结构，因为原型模式适用于任何的等级结构
+
+缺点：
+
+* 每一个类都必须配备一个克隆方法
+
 
 [[design-prototype-qa]]
 == Q&A
 
 [qanda]
-java.lang.Object类有clone方法,那么,`java,lang.Object` 实现了 `java.lang.Cloneable` 接口吗?:: 没有,`java.lang.Object` 并没有实现 `java.lang.Cloneable` 接口.如果实现了 `java.lang.Cloneable` 接口,无论那个类的对象实例调用 `clone()` 方法都不会抛出 `CloneNotSupportedException` 异常
-
+java.lang.Object 类有 clone 方法,那么,`java,lang.Object` 实现了 `java.lang.Cloneable` 接口吗?:: 没有,`java.lang.Object` 并没有实现 `java.lang.Cloneable` 接口.如果实现了 `java.lang.Cloneable` 接口,无论那个类的对象实例调用 `clone()` 方法都不会抛出 `CloneNotSupportedException` 异常
 
 [[design-prototype-java]]
-== Java语言中原型模式
+== Java 语言中原型模式
 
 *  java.lang.Object#clone() (支持浅克隆的类必须实现java.lang.Cloneable 接口)
