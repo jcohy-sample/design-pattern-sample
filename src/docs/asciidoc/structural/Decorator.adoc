@@ -4,17 +4,19 @@
 [[design-decorator-overview]]
 == 概述
 
-装饰器模式:动态的给一个对象添加一些额外的职责,就增加功能来说,装饰器模式比生产子类更加灵活.
+装饰器模式:也成为包装模式（Wrapper），动态的给一个对象添加一些额外的职责,就增加功能来说,装饰器模式比生产子类更加灵活.
 
 [[design-decorator-role]]
 == 装饰器模式的角色
 
-image::{oss-images}/design-decorator1.png[]
+image::{oss-images}/design-pattern-decorator.png[]
 
-* Component:定义了一个对象接口,可以动态的给这些对象添加职责.
-* ConcreteComponent:ConcreteComponent定义了一个具体的对象,也可以给这个对象添加一些职责.
-* Decorator:Decorator,装饰的抽象类.继承了 Component,从外类来扩展 Component 的功能,但对于 Component 来说,是无需知道 Decorator 的存在的.
-* ConcreteDecorator:ConcreteDecorator 具体的装饰对象,给 Component 添加职责的功能.
+在装饰模式中的各个角色：
+
+* 抽象构件角色（Component）：给出一个抽象接口，以规范准备接收附加责任的对象。
+* 具体构件角色（ConcreteComponent）:定义了一个将要接收附加责任的类。
+* 装饰角色（Decorator）:持有一个 Component 对象的实例，并定义一个与抽象构件接口一致的接口。
+* 具体装饰角色（ConcreteDecorator）:负责给构件对象添加责任.
 
 [[design-decorator-sign]]
 == 适用性
@@ -26,6 +28,49 @@ image::{oss-images}/design-decorator1.png[]
 [[design-decorator-impl]]
 == 装饰器模式的实现
 
+1、 创建 Component 接口
+
+[source,java,indent=0,subs="verbatim,quotes",role="primary"]
+.Component
+----
+include::{java-code}/decorator/impl/Component.java[tag=code]
+----
+
+2、创建 Decorator 类，每一个实现的方法都委派给父类，但并不单纯地委派，而是有功能的增强。这里的 Decorator 虽然不是一个抽象类，但是由于它的功能是一个抽象角色，因此也常常称它为抽象装饰
+
+[source,java,indent=0,subs="verbatim,quotes",role="primary"]
+.Decorator
+----
+include::{java-code}/decorator/impl/Decorator.java[tag=code]
+----
+
+3、创建 ConcreteComponent
+
+[source,java,indent=0,subs="verbatim,quotes",role="primary"]
+.ConcreteComponent
+----
+include::{java-code}/decorator/impl/ConcreteComponent.java[tag=code]
+----
+
+4、具体装饰对象 ConcreteDecorator
+
+[source,java,indent=0,subs="verbatim,quotes",role="primary"]
+.ConcreteDecorator
+----
+include::{java-code}/decorator/impl/ConcreteDecorator.java[tag=code]
+----
+
+5、 客户点调用
+
+[source,java,indent=0,subs="verbatim,quotes",role="primary"]
+.Client
+----
+include::{java-code}/decorator/impl/Client.java[tag=code]
+----
+
+[[design-decorator-sample]]
+== 装饰器模式的案例
+
 本例演示一个在字符串周围装饰上外框在打印出来的程序.装饰外框是以 +,-,| 等字符组成的框线.
 
 [source,xml]
@@ -35,12 +80,12 @@ image::{oss-images}/design-decorator1.png[]
 +-----------------+
 ----
 
-1.定义一个Display类,是打印多行字符串的抽象类
+1.定义一个 Display 类,是打印多行字符串的抽象类
 
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
 .Display
 ----
-include::{java-code}/decorator/example2/Display.java[tag=code]
+include::{java-code}/decorator/sample/Display.java[tag=code]
 ----
 
 2.StringDisplay:打印整行字符串的实现类.
@@ -48,7 +93,7 @@ include::{java-code}/decorator/example2/Display.java[tag=code]
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
 .StringDisplay
 ----
-include::{java-code}/decorator/example2/StringDisplay.java[tag=code]
+include::{java-code}/decorator/sample/StringDisplay.java[tag=code]
 ----
 
 3.Border: Border类表示装饰外框的抽象类.虽然定义为装饰外框的的类,但仍定义为打印字符串Display的子类.
@@ -56,7 +101,7 @@ include::{java-code}/decorator/example2/StringDisplay.java[tag=code]
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
 .Border
 ----
-include::{java-code}/decorator/example2/Border.java[tag=code]
+include::{java-code}/decorator/sample/Border.java[tag=code]
 ----
 
 4.SideBorder: 是一种具体的外框,也是Border类的子类.
@@ -64,7 +109,7 @@ include::{java-code}/decorator/example2/Border.java[tag=code]
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
 .SideBorder
 ----
-include::{java-code}/decorator/example2/SideBorder.java[tag=code]
+include::{java-code}/decorator/sample/SideBorder.java[tag=code]
 ----
 
 5.FullBorder: 和SideBorder类一样.
@@ -72,7 +117,7 @@ include::{java-code}/decorator/example2/SideBorder.java[tag=code]
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
 .FullBorder
 ----
-include::{java-code}/decorator/example2/FullBorder.java[tag=code]
+include::{java-code}/decorator/sample/FullBorder.java[tag=code]
 ----
 
 6.main
@@ -80,7 +125,7 @@ include::{java-code}/decorator/example2/FullBorder.java[tag=code]
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
 .Test
 ----
-include::{java-code}/decorator/example2/Test.java[tag=code]
+include::{java-code}/decorator/sample/Client.java[tag=code]
 ----
 
 7.result
@@ -88,23 +133,36 @@ include::{java-code}/decorator/example2/Test.java[tag=code]
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
 .Test
 ----
-                d1:
-                Hello World
-                d2:
-                #Hello World#
-                d3:
-                +-------------+
-                |#Hello World#|
-                +-------------+
-                d4:
-                /+------------+/
-                /|+----------+|/
-                /||#+------+#||/
-                /||#|您好！|#||/
-                /||#+------+#||/
-                /|+----------+|/
-                /+------------+/
+d1:
+Hello World
+d2:
+ Hello World
+d3:
++-------------+
+| Hello World |
++-------------+
+d4:
+/+---------------+/
+/|+-------------+|/
+/|| +---------+ ||/
+/|| |您好！| ||/
+/|| +---------+ ||/
+/|+-------------+|/
+/+---------------+/
 ----
+
+[[design-decorator-advence]]
+== 装饰模式的优缺点
+
+* 优点：
+** 装饰模式与继承关系的目的都是要扩展对象的功能。但是装饰模式可以提供比继承关系更多的灵活性
+** 通过使用不同的具体装饰类以及这些装饰类的排列组合，设计师可以创造出很多不同行为的组合
+** 这种比继承更加灵活机动的特性，同时意味着装饰模式比继承关系更容易出错
+* 缺点
+** 装饰模式会产生比继承关系更多的对象。这就意味着查错变得困难。
+
+[[design-decorator-other]]
+== 装饰模式与其他模式
 
 [[design-decorator-qa]]
 == Q&A

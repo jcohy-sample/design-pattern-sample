@@ -12,7 +12,7 @@
 
 单例模式的结构如图:
 
-image::{oss-images}/design-singleton.png[]
+image::{oss-images}/design-pattern-singleton.png[]
 
 [[design-singleton-sign]]
 == 适用性
