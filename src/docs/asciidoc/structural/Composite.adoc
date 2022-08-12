@@ -4,17 +4,43 @@
 [[design-composite-overview]]
 == 概述
 
-将对象组合成树形结构以表示‘部分-整体’的层次结构,组合模式使得用户对单个对象和组合对象的使用的一致性.
+也称为合成模式，将对象组合成树形结构以表示 "部分-整体" 的层次结构，组合模式使得用户对单个对象和组合对象的使用的一致性
+
+=== 对象的树结构
+
+
+一个树结构有两种节点组成：树枝节点和树叶节点。树枝节点可以有子节点，而树叶节点不可以有子节点。
+
+[NOTE]
+====
+一个树枝节点可以不带任何叶子，但是他因为有带叶子的能力，因此仍然是树枝节点，而不会成为树叶节点。一个树叶节点则永远也不可能带有子节点。
+====
 
 [[design-composite-role]]
 == 组合模式的角色
 
-image::{oss-images}/design-composite1.png[]
+image::{oss-images}/design-pattern-composite.png[]
 
-*  Component:组合中的对象声明接口,在适当情况下,实现所有类公共接口的默认行为,声明一个接口用于访问和管理的子部件.
-*  Leaf :在组合中表示叶节点对象,叶节点没有子节点.
-*  Composite:定义有枝节点行为,用来存储子部件,在 Component 接口中实现与子部件相关的操作.
-*  Client
+*  抽象构建角色（Component）：组合中的对象声明接口,在适当情况下,这个角色给出共有的接口及其默认行为，声明一个接口用于访问和管理的子部件.
+*  树叶构建角色（Leaf）：在组合中表示树叶对象,定义出参加组合的原始对象的行为.
+*  树枝构建角色（Composite）：定义有枝节点行为,用来存储子部件, 代表参加组合的有子对象的对象。在 Component 接口中实现与子部件相关的操作.
+*  Client：客户端
+
+可以看出，一个 Composite 类型的对象含有其他 Component 类型的对象。也就是说，一个 Composite 对象可以包含其他树枝（Composite）类型或树叶（Leaf）类型的对象。
+
+组合模式的实现根据所实现接口的区别分为两种： 安全式和透明式
+
+=== 透明式
+
+在 Component 中声明所有的用来管理子类对象的方法。包括 add()，remove()，getChild() 等方法，这样做的好处是所有的构件类都具有相同的接口。在客户端来看，树叶类对象与合成类对象的区别在接口层面上消失了，客户端可以同等的对待所有对象。
+
+这样的缺点也是很明显的，不够安全。因为树叶类对象与合成类对象在本质上还是有区别的。树叶类对象不可能有下一个层次的对象，因此 add()，remove()，getChild() 方法没有意义。在编译期间不会出错，只会在运行期间出错
+
+=== 安全式
+
+在 Composite 类里面声明所有的用来管理子类对象的方法。这样是安全的做法，因为树叶类型根本就没有管理子类对象的方法，因此，如果客户端对树叶类对象使用这些方法时，程序会在编译时期出错。
+
+这种方法的缺点就是不够透明，因为树叶类和合成类具有不同的接口。
 
 [[design-composite-sign]]
 == 适用性
@@ -25,59 +51,103 @@ image::{oss-images}/design-composite1.png[]
 [[design-composite-impl]]
 == 组合模式的实现
 
-以文件和目录的结构为例.在程序中,File 表示文件,Directory 表示目录.两者合并起来就是父类 Entry 类,表示目录进入点的类.对 File 和 Directory 一视同仁的类.
-
-1.Entry
+1、创建 Component
 
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
 .Entry
 ----
-include::{java-code}/composite/Entry.java[tag=code]
+include::{java-code}/composite/impl/Component.java[tag=code]
 ----
 
-2.File
+2、创建 Composite 树枝角色。实现了抽象构件角色所规定的所有接口。
+
+[source,java,indent=0,subs="verbatim,quotes",role="primary"]
+.Entry
+----
+include::{java-code}/composite/impl/Composite.java[tag=code]
+----
+
+2、创建 Leaf 树叶角色。同样也实现了抽象构件角色所规定的所有接口。但是因为树叶角色没有子节点，因此 add(), remove(),display() 等方法并没有实际内容。
+
+[source,java,indent=0,subs="verbatim,quotes",role="primary"]
+.Entry
+----
+include::{java-code}/composite/impl/Leaf.java[tag=code]
+----
+
+
+[[design-composite-sample]]
+== 组合模式的案例
+
+以文件和目录的结构为例.在程序中,File 表示文件,Directory 表示目录.两者合并起来就是父类 Entry 类,表示目录进入点的类.对 File 和 Directory 一视同仁的类。Directory 类应为树枝节点，File 类为树叶节点
+
+1、Entry
+
+[source,java,indent=0,subs="verbatim,quotes",role="primary"]
+.Entry
+----
+include::{java-code}/composite/sample/Entry.java[tag=code]
+----
+
+[NOTE]
+====
+此案例使用的是组合模式中安全式的模式。因为此接口并没有包含用于管理子对象的 add 方法。
+====
+
+2、File
 
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
 .File
 ----
-include::{java-code}/composite/File.java[tag=code]
+include::{java-code}/composite/sample/File.java[tag=code]
 ----
 
-3.Directory
+3、Directory
 
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
 .Directory
 ----
-include::{java-code}/composite/Directory.java[tag=code]
+include::{java-code}/composite/sample/Directory.java[tag=code]
 ----
 
-4.Client
-
-[source,java,indent=0,subs="verbatim,quotes",role="primary"]
-.Client
-----
-include::{java-code}/composite/Client.java[tag=code]
-----
-
-5.result
+4、Client
 
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
 .Client
 ----
-                Root directory
-                /root(200)
-                /root/bin(200)
-                /root/bin/vi.txt(100)
-                /root/bin/late.txt(100)
-                /root/tmp(0)
-                /root/usr(0)
+include::{java-code}/composite/sample/Client.java[tag=code]
 ----
+
+5、result
+
+[source,java,indent=0,subs="verbatim,quotes",role="primary"]
+.Client
+----
+Root directory
+/root(200)
+/root/bin(200)
+/root/bin/vi.txt(100)
+/root/bin/late.txt(100)
+/root/tmp(0)
+/root/usr(0)
+----
+
+[[design-composite-other]]
+== 与其他模式的关系
 
 [[design-composite-qa]]
 == Q&A
 
+. 在模式的定义中，如果聚合关系不是从 Composite 到 Component 的，而是从 Composite 到 Leaf 的，会怎么样？
++
+在组合模式的类图中，聚合关系是从 Composite 到 Component 的，这意味着类型为 Composite 的对象可以含有类型为 Component 的对象。也就是说，Composite 的对象不仅可以包含类型为 Leaf 的对象，也可以包含类型为 Composite 的对象。
++
+而假如聚合关系是从 Composite 到 Leaf 的。也就是说，类型为 Composite 的可以含有 Leaf，但不会包含 Composite 类型的对象。
++
+以上面的案例来解释的话，这时候的目录只有一层，也就是说目录只含有文件而不包含目录，目录的层次将只有一层。
+
 [[design-composite-java]]
-== Java语言中组合模式
+== Java 语言中组合模式
 
 *  javax.swing.JComponent#add(Component)
 *  java.awt.Container#add(Component)

@@ -5,17 +5,17 @@
 == 概述
 
 适配器模式: 将一个类的接口转化成客户希望的另一个接口.Adapter模式使得原本由于接口不兼容而不能一起工作的那些类可以一起工作
-适配器模式是结构型设计模式的起源.我们来看下面这张图
-
-image::{oss-images}/design-adapter1.png[]
+适配器模式是结构型设计模式的起源.
 
 [[design-adapter-role]]
 == 适配器模式的角色
 
-*  `Target`:对象参与者,决定现在需要什么方法的参与者.即客户端所期待的接口.目标可以是具体的或抽象的类,也可以是接口.
-*  `Adaptee`:需要适配的类
-*  `Adapter`:通过在内部包装一个 `Adaptee` 对象,把源接口转换成目标接口.
-*  `Client`:客户端
+image::{oss-images}/design-pattern-adapter.png[]
+
+*  目标角色（Target）:对象参与者,决定现在需要什么方法的参与者.即客户端所期待的接口.目标可以是具体的或抽象的类,也可以是接口.
+*  源角色（Adaptee）:需要适配的接口
+*  适配器角色（Adapter）:通过在内部包装一个 `Adaptee` 对象,把源接口转换成目标接口。显然，这一角色必须是具体类
+*  客户端（Client）:客户端
 
 [[design-adapter-sort]]
 == 适配器模式的分类
@@ -28,19 +28,13 @@ image::{oss-images}/design-adapter1.png[]
 == 适用性
 
 * 你想使用一个已经存在的类,而它的接口不符合你的需求.
-* 你想创建一个可以复用的类,该类可以与其他不相关的类或不可预见的类(即那些接口可能不一定兼容的类)协同工作.
+* 你想创建一个可以重复使用的类,该类可以与其他不相关的类或不可预见的类(即那些接口可能不一定兼容的类)协同工作.
 * (仅适用于对象 Adapter)你想使用一些已经存在的子类,但是不可能对每一个都进行子类化以匹配它们的接口.对象适配器可以适配它的父类接口.
 
 [[design-adapter-impl]]
 == 适配器模式的实现
 
-[source,java,indent=0,subs="verbatim,quotes",role="primary"]
-.Adaptee
-----
-include::{java-code}/adapter/Adaptee.java[tag=code]
-----
-
-Target 目标接口
+1、客户端所期待的 Target 目标接口
 
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
 .Target
@@ -48,11 +42,15 @@ Target 目标接口
 include::{java-code}/adapter/Target.java[tag=code]
 ----
 
+2、需要适配的接口
+
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
-.ConcreteTarget
+.Adaptee
 ----
-include::{java-code}/adapter/ConcreteTarget.java[tag=code]
+include::{java-code}/adapter/Adaptee.java[tag=code]
 ----
+
+3、适配器角色
 
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
 .Adapter
@@ -60,21 +58,20 @@ include::{java-code}/adapter/ConcreteTarget.java[tag=code]
 include::{java-code}/adapter/Adapter.java[tag=code]
 ----
 
+4、客户端
+
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
 .Client
 ----
-include::{java-code}/adapter/Test.java[tag=code]
+include::{java-code}/adapter/Client.java[tag=code]
 ----
+
+[[design-adapter-other]]
+== 与其他模式的关系
 
 [[design-adapter-qa]]
 == Q&A
 
 [[design-adapter-sample]]
-== Java语言中原型模式
+== Java 语言中适配器模式
 
-*  java.util.Arrays#asList()
-*  javax.swing.JTable(TableModel)
-*  java.io.InputStreamReader(InputStream)
-*  java.io.OutputStreamWriter(OutputStream)
-*  javax.xml.bind.annotation.adapters.XmlAdapter#marshal()
-*  javax.xml.bind.annotation.adapters.XmlAdapter#unmarshal()

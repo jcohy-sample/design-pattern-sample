@@ -99,7 +99,7 @@ include::creative/index.adoc[leveloffset=+1]
 
 //include::relational/index.adoc[leveloffset=+1]
 //
-//include::structural/index.adoc[leveloffset=+1]
+include::structural/index.adoc[leveloffset=+1]
 
 == 参考文献
 
