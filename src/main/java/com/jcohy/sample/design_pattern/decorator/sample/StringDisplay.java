@@ -10,6 +10,7 @@ package com.jcohy.sample.design_pattern.decorator.sample;
  * @version 2022.04.0 2022/8/12:15:10
  * @since 2022.04.0
  */
+// tag::code[]
 public class StringDisplay extends Display {
 
     private String string;// 打印的字符串
@@ -39,3 +40,4 @@ public class StringDisplay extends Display {
     }
 
 }
+// end::code[]

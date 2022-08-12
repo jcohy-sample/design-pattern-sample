@@ -73,38 +73,38 @@ include::{java-code}/observer/Client.java[tag=code]
 
 6、result
 
-[source, shell]
+[source,text]
 ----
-                                    DigitObserver:0
-                                    GraphObserver:
+DigitObserver:0
+GraphObserver:
 
-                                    DigitObserver:7
-                                    GraphObserver:
-                                    *******
-                                    DigitObserver:6
-                                    GraphObserver:
-                                    ******
-                                    DigitObserver:48
-                                    GraphObserver:
-                                    ************************************************
-                                    DigitObserver:10
-                                    GraphObserver:
-                                    **********
-                                    DigitObserver:7
-                                    GraphObserver:
-                                    *******
-                                    DigitObserver:5
-                                    GraphObserver:
-                                    *****
-                                    DigitObserver:8
-                                    GraphObserver:
-                                    ********
-                                    DigitObserver:5
-                                    GraphObserver:
-                                    *****
-                                    DigitObserver:11
-                                    GraphObserver:
-                                    ***********
+DigitObserver:7
+GraphObserver:
+*******
+DigitObserver:6
+GraphObserver:
+******
+DigitObserver:48
+GraphObserver:
+************************************************
+DigitObserver:10
+GraphObserver:
+**********
+DigitObserver:7
+GraphObserver:
+*******
+DigitObserver:5
+GraphObserver:
+*****
+DigitObserver:8
+GraphObserver:
+********
+DigitObserver:5
+GraphObserver:
+*****
+DigitObserver:11
+GraphObserver:
+***********
 ----
 
 

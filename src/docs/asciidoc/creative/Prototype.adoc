@@ -71,7 +71,7 @@ include::{java-code}/prototype/simple/ConcretePrototype.java[tag=code]
 3.创建 Client
 
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
-.Test
+.Client
 ----
 include::{java-code}/prototype/simple/Client.java[tag=code]
 ----
@@ -108,7 +108,7 @@ include::{java-code}/prototype/form/PrototypeManager.java[tag=code]
 4.创建 Client
 
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
-.Test
+.Client
 ----
 include::{java-code}/prototype/form/Client.java[tag=code]
 ----

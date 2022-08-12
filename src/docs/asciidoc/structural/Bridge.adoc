@@ -81,7 +81,7 @@ include::{java-code}/bridge/Client.java[tag=code]
 
 5.result
 
-[source,java,indent=0,subs="verbatim,quotes",role="primary"]
+[source,text]
 .Client
 ----
 implement mysql connection

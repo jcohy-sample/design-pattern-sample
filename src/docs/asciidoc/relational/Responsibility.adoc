@@ -69,24 +69,24 @@ include::{java-code}/responsibility/Client.java[tag=code]
 
 5.result
 
-[source,shell script]
+[source,text]
 ----
-                                Trouble [number=0]is resolved bySupport [name=Bob]
-                                Trouble [number=33]is resolved bySupport [name=Bob]
-                                Trouble [number=66]is resolved bySupport [name=Bob]
-                                Trouble [number=99]is resolved bySupport [name=Bob]
-                                Trouble [number=132]is resolved bySupport [name=diana]
-                                Trouble [number=165]is resolved bySupport [name=diana]
-                                Trouble [number=198]is resolved bySupport [name=diana]
-                                Trouble [number=231]is resolved bySupport [name=elmo]
-                                Trouble [number=264]is resolved bySupport [name=fred]
-                                Trouble [number=297]is resolved bySupport [name=elmo]
-                                Trouble [number=330]cannot be resolved !
-                                Trouble [number=363]is resolved bySupport [name=elmo]
-                                Trouble [number=396]cannot be resolved !
-                                Trouble [number=429]is resolved bySupport [name=charlie]
-                                Trouble [number=462]cannot be resolved !
-                                Trouble [number=495]is resolved bySupport [name=elmo]
+Trouble [number=0]is resolved bySupport [name=Bob]
+Trouble [number=33]is resolved bySupport [name=Bob]
+Trouble [number=66]is resolved bySupport [name=Bob]
+Trouble [number=99]is resolved bySupport [name=Bob]
+Trouble [number=132]is resolved bySupport [name=diana]
+Trouble [number=165]is resolved bySupport [name=diana]
+Trouble [number=198]is resolved bySupport [name=diana]
+Trouble [number=231]is resolved bySupport [name=elmo]
+Trouble [number=264]is resolved bySupport [name=fred]
+Trouble [number=297]is resolved bySupport [name=elmo]
+Trouble [number=330]cannot be resolved !
+Trouble [number=363]is resolved bySupport [name=elmo]
+Trouble [number=396]cannot be resolved !
+Trouble [number=429]is resolved bySupport [name=charlie]
+Trouble [number=462]cannot be resolved !
+Trouble [number=495]is resolved bySupport [name=elmo]
 ----
 
 

@@ -123,15 +123,14 @@ include::{java-code}/decorator/sample/FullBorder.java[tag=code]
 6.main
 
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
-.Test
+.Client
 ----
 include::{java-code}/decorator/sample/Client.java[tag=code]
 ----
 
 7.result
 
-[source,java,indent=0,subs="verbatim,quotes",role="primary"]
-.Test
+[source,text]
 ----
 d1:
 Hello World

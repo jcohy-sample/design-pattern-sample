@@ -10,6 +10,7 @@ package com.jcohy.sample.design_pattern.decorator.sample;
  * @version 2022.04.0 2022/8/12:15:10
  * @since 2022.04.0
  */
+// tag::code[]
 public abstract class Display {
 
     public abstract int getColumns();// 取得横向的字数
@@ -25,3 +26,4 @@ public abstract class Display {
     }
 
 }
+// end::code[]

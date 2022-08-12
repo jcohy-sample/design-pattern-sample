@@ -54,7 +54,7 @@ include::{java-code}/factory/method/FactoryTest.java[tag=code]
 
 6.结果
 
-[source,java,indent=0,subs="verbatim,quotes",role="primary"]
+[source,text]
 .result
 ----
 输出: this is mail sender!

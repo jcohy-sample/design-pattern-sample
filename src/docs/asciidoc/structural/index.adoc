@@ -9,3 +9,9 @@
 include::Adapter.adoc[leveloffset=+1]
 
 include::Composite.adoc[leveloffset=+1]
+
+include::Decorator.adoc[leveloffset=+1]
+
+include::Proxy.adoc[leveloffset=+1]
+
+include::Flyweight.adoc[leveloffset=+1]

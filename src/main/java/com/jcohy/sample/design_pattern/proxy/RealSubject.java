@@ -10,6 +10,7 @@ package com.jcohy.sample.design_pattern.proxy;
  * @version 2022.04.0 2022/8/12:16:19
  * @since 2022.04.0
  */
+// tag::code[]
 public class RealSubject implements Subject {
 
     @Override
@@ -17,3 +18,4 @@ public class RealSubject implements Subject {
         System.out.println("执行请求。。。");
     }
 }
+// end::code[]

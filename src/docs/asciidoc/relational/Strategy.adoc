@@ -67,11 +67,11 @@ include::{java-code}/strategy/Test.java[tag=code]
 
 5.result
 
-[source,shell script]
+[source,text]
 ----
-                    这是A的算法实现
-                    这是B的算法实现
-                    这是C的算法实现
+这是A的算法实现
+这是B的算法实现
+这是C的算法实现
 ----
 
 

@@ -10,6 +10,7 @@ package com.jcohy.sample.design_pattern.decorator.sample;
  * @version 2022.04.0 2022/8/12:15:11
  * @since 2022.04.0
  */
+// tag::code[]
 public abstract class Border extends Display {
 
     protected Display display;// 指装饰外框里面的内容
@@ -19,3 +20,4 @@ public abstract class Border extends Display {
     }
 
 }
+// end::code[]

@@ -58,16 +58,16 @@ include::{java-code}/templatemethod/Client.java[tag=code]
 
 4.result
 
-[source,shell script]
+[source,text]
 ----
-                           <<aaaaa>>
-                           +-----------+
-                           |Hello world|
-                           |Hello world|
-                           |Hello world|
-                           |Hello world|
-                           |Hello world|
-                           +-----------+
+<<aaaaa>>
++-----------+
+|Hello world|
+|Hello world|
+|Hello world|
+|Hello world|
+|Hello world|
++-----------+
 ----
 
 [[design-template-java]]

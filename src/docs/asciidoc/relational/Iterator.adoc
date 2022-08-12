@@ -79,12 +79,12 @@ include::{java-code}/iterator/Client.java[tag=code]
 
 7.result
 
-[source,shell script]
+[source,text]
 ----
-                    Book [name=Effective Java]
-                    Book [name=Effective Python]
-                    Book [name=Effective C++]
-                    Book [name=Effective PHP]
+Book [name=Effective Java]
+Book [name=Effective Python]
+Book [name=Effective C++]
+Book [name=Effective PHP]
 ----
 
 [[design-iterator-qa]]

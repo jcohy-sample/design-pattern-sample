@@ -63,20 +63,20 @@ include::{java-code}/facade/Client.java[tag=code]
 
 4.result
 
-[source,java,indent=0,subs="verbatim,quotes",role="primary"]
+[source,text]
 .result
 ----
 
-                    computer startup
-                    cpu startup
-                    memory startup
-                    disk startup
-                    computer startup finished
-                    computer shutdown
-                    cpu shutdown
-                    memory shutdown
-                    disk shutdown
-                    computer shutdown finished
+computer startup
+cpu startup
+memory startup
+disk startup
+computer startup finished
+computer shutdown
+cpu shutdown
+memory shutdown
+disk shutdown
+computer shutdown finished
 ----
 
 [[design-facade-qa]]

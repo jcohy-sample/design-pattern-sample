@@ -4,18 +4,28 @@
 [[design-flyweight-overview]]
 == 概述
 
-利用共享技术有效的支持大量细粒度的对象.
+享元模式是对象的结构模式，享元模式利用共享技术有效的支持大量细粒度的对象。
+
+享元对象能做到共享的关键是区分内蕴状态（Internal State）和外蕴状态（External State）
+
+一个内蕴状态是存储在享元对象内部的，并且是不会随环境改变而有所不同的。因此，一个享元可以具有内蕴状态并可以共享
+
+一个外蕴状态是随环境改变而改变的、不可以共享的状态。享元对象的外蕴状态必须由客户端保存，并在享元对象被创建之后，在需要使用的时候再传入到享元对象内部。
+
+外蕴状态不可以影响享元对象的内蕴状态。换言之，他们是相互独立的。
 
 [[design-flyweight-role]]
 == 亨元模式的角色
 
-image::{oss-images}/design-flyweight1.png[]
+image::{oss-images}/design-pattern-flyweight.png[]
 
-*  FlyweightFactory:一个亨元工厂,用来创建并管理Flyweight对象,他主要是用来确保合理的共享Flyweight,当一个用户请求Flyweight时,FlyweightFactory对象提供一个已经创建好的实例或创建一个(当没有时)
-*  Flyweight:所有具体亨元类的超类或者接口,通过这个接口,Flyweight 可以接受并作用于外部状态.
-*  ConcreteFlyweight:继承或者实现Flyweight,并未内部状态增加存储空间.
-*  UnsharedConcreteFlyweight:指那些不需要共享的Flyweight子类,因为Flyweight接口共享成为可能,但他不强制要求共享 .
-*  Client
+本模式涉及的角色如下：
+
+* 抽象享元角色（Flyweight）：此角色是所有的具体享元类的超类，因为这些类规定出需要实现的公共接口。Flyweight 可以接受并作用于外部状态。
+* 具体享元角色（ConcreteFlyweight）：实现抽象享元角色所规定的接口。如果有内蕴状态的话，必须负责为内蕴状态提供存储空间。享元对象的内蕴状态必须与对象所处的周围环境无关，从而使得享元对象可以在系统内共享的。
+* 享元工厂（FlyweightFactory）：一个亨元工厂,用来创建并管理 Flyweight 对象。他主要是用来确保合理的共享 Flyweight,当一个用户请求 Flyweight 时, 对象提供一个已经创建好的实例或创建一个(当没有时)
+* 复合享元角色（UnsharedConcreteFlyweight）:复合享元角色所代表的对象是不可以共享的，但是一个复合对象可以分解成为多个本身是单纯享元对象的组合。复合享元角色由称做不可共享的享元角色
+* Client：客户端
 
 [[design-flyweight-sign]]
 == 适用性
@@ -27,53 +37,85 @@ image::{oss-images}/design-flyweight1.png[]
 [[design-flyweight-impl]]
 == 实现
 
-1、BigChar
+1、创建抽象享元角色
 
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
 .Java
 ----
-include::{java-code}/flyweight/BigChar.java[tag=code]
+include::{java-code}/flyweight/impl/Flyweight.java[tag=code]
 ----
 
-2、BigString
-
-[source,java,indent=0,subs="verbatim,quotes",role="primary"]
-.Java
-----
-include::{java-code}/flyweight/BigString.java[tag=code]
-----
-
-3、BigCharFactory
+2、具体享元角色
 
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
 .Java
 ----
-include::{java-code}/flyweight/BigCharFactory.java[tag=code]
+include::{java-code}/flyweight/impl/ConcreteFlyweight.java[tag=code]
 ----
 
-4、Client
+3、享元工厂角色
 
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
 .Java
 ----
-include::{java-code}/flyweight/Client.java[tag=code]
+include::{java-code}/flyweight/impl/FlyweightFactory.java[tag=code]
 ----
 
-5、result
+4、复合享元角色
 
-[source,shell script]
+[source,java,indent=0,subs="verbatim,quotes",role="primary"]
+.Java
 ----
-Usage:java Main digits
-Example:java Main 1212123
+include::{java-code}/flyweight/impl/FlyweightFactory.java[tag=code]
 ----
+
+5、客户端
+
+[source,java,indent=0,subs="verbatim,quotes",role="primary"]
+.Java
+----
+include::{java-code}/flyweight/impl/UnsharedConcreteFlyweight.java[tag=code]
+----
+
+6、输出：
+
+[source,text]
+----
+Intrinsic State = a, Extrinsic State = First Call
+
+Intrinsic State = b, Extrinsic State = Second Call
+
+Intrinsic State = a, Extrinsic State = Third Call
+
+Intrinsic State = a, Extrinsic State = Composite Call
+
+Intrinsic State = b, Extrinsic State = Composite Call
+========= checkFlyweight ============
+Item 1:a
+Item 2:b
+----
+
+可以看到系统一共创建了两个单纯享元对象，分别对应 "a" 和 "b" 两种内蕴状态。
+
+[[design-flyweight-other]]
+== 享元模式与其他模式
+
+[[design-flyweight-advence]]
+== 享元模式优缺点
+
+* 优点
+** 大幅度降级内存中对象的数量
+* 缺点
+** 享元模式使系统更加复杂，为了使对象可以共享，需要将一些状态外部化，着使得程序的逻辑复杂化
+** 享元模式将享元对象的状态外部化，而读取外部状态使得运行时间稍微变长
 
 [[design-flyweight-qa]]
 == Q&A
 
 [[design-flyweight-java]]
-== Java语言中亨元模式
+== Java 语言中亨元模式
 
-*  java.lang.Integer#valueOf(int)
-*  java.lang.Boolean#valueOf(boolean)
-*   java.lang.Byte#valueOf(byte)
-*  java.lang.Character#valueOf(char)
+* java.lang.Integer#valueOf(int)
+* java.lang.Boolean#valueOf(boolean)
+* java.lang.Byte#valueOf(byte)
+* java.lang.Character#valueOf(char)

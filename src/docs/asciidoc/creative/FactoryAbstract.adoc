@@ -118,15 +118,15 @@ include::{java-code}/factory/abs/AbstractFactoryDemo.java[tag=code]
 
 9.结果
 
-[source,java,indent=0,subs="verbatim,quotes",role="primary"]
+[source,text]
 .result
 ----
-                Inside Circle::draw() method.
-                Inside Rectangle::draw() method.
-                Inside Square::draw() method.
-                Inside Red::fill() method.
-                Inside Green::fill() method.
-                Inside Blue::fill() method.
+Inside Circle::draw() method.
+Inside Rectangle::draw() method.
+Inside Square::draw() method.
+Inside Red::fill() method.
+Inside Green::fill() method.
+Inside Blue::fill() method.
 ----
 
 [[factory-abstract-advantage]]

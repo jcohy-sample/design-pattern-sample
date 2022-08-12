@@ -43,14 +43,14 @@ include::{java-code}/memento/example2/Storage.java[tag=code]
 测试:
 
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
-.Test
+.Client
 ----
-include::{java-code}/memento/example2/Test.java[tag=code]
+include::{java-code}/memento/example2/Client.java[tag=code]
 ----
 
 result:
 
-[source, java]
+[source,text]
 ----
 初始化状态为: egg
 修改后的状态为: niu

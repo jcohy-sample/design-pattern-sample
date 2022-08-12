@@ -37,7 +37,7 @@ image::{oss-images}/design-pattern-proxy.png[]
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
 .Subject
 ----
-include::{java-code}/proxy/example2/Subject.java[tag=code]
+include::{java-code}/proxy/Subject.java[tag=code]
 ----
 
 2.RealSubject
@@ -45,7 +45,7 @@ include::{java-code}/proxy/example2/Subject.java[tag=code]
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
 .RealSubject
 ----
-include::{java-code}/proxy/example2/RealSubject.java[tag=code]
+include::{java-code}/proxy/RealSubject.java[tag=code]
 ----
 
 3.Proxy
@@ -53,7 +53,7 @@ include::{java-code}/proxy/example2/RealSubject.java[tag=code]
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
 .Proxy
 ----
-include::{java-code}/proxy/example2/Proxy.java[tag=code]
+include::{java-code}/proxy/Proxy.java[tag=code]
 ----
 
 4.Client
@@ -61,12 +61,12 @@ include::{java-code}/proxy/example2/Proxy.java[tag=code]
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
 .Client
 ----
-include::{java-code}/proxy/example2/Client.java[tag=code]
+include::{java-code}/proxy/Client.java[tag=code]
 ----
 
 5.输出
 
-[source,shell]
+[source,text]
 ----
 执行请求之前。。。
 执行请求。。。

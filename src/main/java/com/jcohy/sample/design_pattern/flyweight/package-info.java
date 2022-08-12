@@ -1,5 +1,3 @@
-package com.jcohy.sample.design_pattern.proxy;
-
 /**
  * 描述: .
  * <p>
@@ -7,13 +5,7 @@ package com.jcohy.sample.design_pattern.proxy;
  * </p>
  *
  * @author jiac
- * @version 2022.04.0 2022/8/12:16:18
+ * @version 2022.04.0 2022/8/12:17:41
  * @since 2022.04.0
  */
-// tag::code[]
-public interface Subject {
-
-    void request();
-
-}
-// end::code[]
+package com.jcohy.sample.design_pattern.flyweight;

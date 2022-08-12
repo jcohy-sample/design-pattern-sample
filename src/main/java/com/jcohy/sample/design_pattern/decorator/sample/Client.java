@@ -10,6 +10,7 @@ package com.jcohy.sample.design_pattern.decorator.sample;
  * @version 2022.04.0 2022/8/12:15:11
  * @since 2022.04.0
  */
+// tag::code[]
 public class Client {
     public static void main(String[] args) {
         Display d1 = new StringDisplay("Hello World");
@@ -28,3 +29,4 @@ public class Client {
 
     }
 }
+// end::code[]

@@ -65,7 +65,7 @@ include::{java-code}/builder/HtmlBuilder.java[tag=code]
 4、创建客户端程序
 
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
-.Test
+.Client
 ----
 include::{java-code}/builder/Client.java[tag=code]
 ----
