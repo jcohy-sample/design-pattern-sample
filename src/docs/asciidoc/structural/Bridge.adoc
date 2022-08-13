@@ -11,48 +11,52 @@
 [[design-bridge-role]]
 == 桥接模式的角色
 
-*  Abstraction() :抽象话给出一个定义,并保存一个对实现化的引用.
-*  RefinedAbstration :被提炼的抽象,扩展抽象化角色,改正和修正父类对抽象化的定义.
-*  Implementor:实现化角色,但不给出具体实现.
-*  ConcreteImplementor(A,B,C.....):具体化实现角色,这个角色给出实现化角色的具体实现.
+image::{oss-images}/design-pattern-bridge.png[]
+
+本迷失涉及的角色有：
+
+*  抽象化角色（Abstraction）:抽象化给出一个定义,并保存一个对实现化的引用.
+*  修正抽象化角色（Refined Abstraction）：被提炼的抽象,扩展抽象化角色,改正和修正父类对抽象化的定义.
+* 实现化角色（Implementor）:这个角色给出实现化角色接口，但不给出具体实现。注意，这个接口不一定和抽象化角色的接口定义相同.
+* 具体实现化角色（ConcreteImplementor(A,B,C.....)）：这个角色给出实现化角色的具体实现.
 
 [[design-bridge-sign]]
 == 适用性
 
-*  如果一个系统需要在构件的抽象化角色和具体化角色之间增加更多的灵活性,避免在两个层次之间建立静态的关系
-*  设计要求实现化角色的任何变化不应当影响客户端,实现化角色的改变对客户端是透明的.
-*  一个构件有多余一个的抽象化角色和实现化角色.系统需要他们之间进行动态耦合.
-*  虽然系统中使用继承是没有问题的,但是由于抽象化角色和具体化角色需要独立的变化,设计要求需要独立管理这两者.
+* 如果一个系统需要在构件的抽象化角色和具体化角色之间增加更多的灵活性,避免在两个层次之间建立静态的关系
+* 设计要求实现化角色的任何变化不应当影响客户端,实现化角色的改变对客户端是透明的.
+* 一个构件有多余一个的抽象化角色和实现化角色.系统需要他们之间进行动态耦合.
+* 虽然系统中使用继承是没有问题的,但是由于抽象化角色和具体化角色需要独立的变化,设计要求需要独立管理这两者.
 
 [[design-bridge-impl]]
 == 桥接模式的实现
 
-模拟JDBC
+模拟 JDBC
 
-1.定义一个接口.Dirver
+1.定义一个接口 Driver
 
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
-.Dirver
+.Driver
 ----
-include::{java-code}/bridge/Dirver.java[tag=code]
+include::{java-code}/bridge/Driver.java[tag=code]
 ----
 
 2.接口实现
 
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
-.MysqlDirver
+.MysqlDriver
 ----
-include::{java-code}/bridge/MysqlDirver.java[tag=code]
+include::{java-code}/bridge/MysqlDriver.java[tag=code]
 ----
-.OracleDirver
+.OracleDriver
 [source,java,indent=0,subs="verbatim,quotes",role="secondary"]
 ----
-include::{java-code}/bridge/OracleDirver.java[tag=code]
+include::{java-code}/bridge/OracleDriver.java[tag=code]
 ----
-.SqlSerDirver
+.SqlSerDriver
 [source,java,indent=0,subs="verbatim,quotes",role="secondary"]
 ----
-include::{java-code}/bridge/SqlSerDirver.java[tag=code]
+include::{java-code}/bridge/SqlSerDriver.java[tag=code]
 ----
 
 3.Briage
@@ -66,9 +70,9 @@ include::{java-code}/bridge/JDBC.java[tag=code]
 4.具体实现
 
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
-.MyBriage
+.MyBridge
 ----
-include::{java-code}/bridge/DirverManange.java[tag=code]
+include::{java-code}/bridge/DriverManange.java[tag=code]
 ----
 
 5.Client
@@ -89,11 +93,14 @@ implement oracle connection
 implement sqlserver connection
 ----
 
+[[design-bridge-other]]
+== 与其他模式
+
 [[design-bridge-qa]]
 == Q&A
 
 [[design-bridge-java]]
-== Java语言中桥接模式
+== Java 语言中桥接模式
 
 *  AWT (提供了抽象层映射于实际的操作系统)
 *  JDBC

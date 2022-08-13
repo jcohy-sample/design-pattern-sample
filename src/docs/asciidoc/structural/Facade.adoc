@@ -1,18 +1,18 @@
 [[design-facade]]
-= 外观模式
+= 门面模式
 
 [[design-facade-overview]]
 == 概述
 
-为子系统中的一组接口提供一个一致的界面, 此模式定义了一个高层接口,这个接口使得这一子系统更加容易使用.
+门面模式，又成为外观模式，是一种对象的结构模式。为子系统中的一组接口提供一个一致的界面, 此模式定义了一个高层接口,这个接口使得这一子系统更加容易使用.
 
 [[design-facade-role]]
-== 外观模式的角色
+== 门面模式的角色
 
-image::{oss-images}/design-facade.png[]
+image::{oss-images}/design-pattern-facade.png[]
 
-* Facade:外观类,知道那些子系统类负责处理请求.将客户的请求代理给适当的子系统对象.
-*  SubSystem(One,Two,Three,....):子系统类集合,实现子系统功能,处理 Facade 对象指派的任务,注意子类没有Facade对象的任何信息,即没有对 Facade 对象的引用.
+* 门面角色（Facade）:客户端可以调用这个角色的方法，此角色知道相关子系统的功能和责任。
+* 子系统角色（SubSystem(One,Two,Three,....）:子系统类集合,实现子系统功能,处理 Facade 对象指派的任务,注意子类没有 Facade 对象的任何信息,即没有对 Facade 对象的引用.
 *  Client
 
 [[design-facade-sign]]
@@ -23,7 +23,7 @@ image::{oss-images}/design-facade.png[]
 * 当你需要构建一个层次结构的子系统时,使用 facade 模式定义子系统中每层的入口点.如果子系统之间是相互依赖的,你可以让它们仅通过 facade 进行通讯,从而简化了它们之间的依赖关系.
 
 [[design-facade-impl]]
-== 外观模式的实现
+== 门面模式的实现
 
 以启动一个计算机启动过程为例.
 
@@ -66,7 +66,6 @@ include::{java-code}/facade/Client.java[tag=code]
 [source,text]
 .result
 ----
-
 computer startup
 cpu startup
 memory startup
@@ -84,7 +83,7 @@ computer shutdown finished
 
 
 [[design-facade-java]]
-== Java语言中外观模式
+== Java语言中门面模式
 
 *  java.lang.Class
 *  javax.faces.webapp.FacesServlet

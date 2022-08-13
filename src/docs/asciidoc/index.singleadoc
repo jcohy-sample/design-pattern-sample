@@ -51,7 +51,7 @@ image::{oss-images}/design-pattern-overview.png[]
 //*** <<design-mediator,中介者模式(Mediator)>>
 //*** <<design-interpreter,解释器模式(Interpreter)>>
 
-适配器模式、装饰模式、代理模式、外观模式、桥接模式、组合模式、享元模式.其中对象的适配器模式是各种模式的起源,我们看下面的图:
+适配器模式、装饰模式、代理模式、门面模式、桥接模式、组合模式、享元模式.其中对象的适配器模式是各种模式的起源,我们看下面的图:
 
 image::{oss-images}/design-pattern-structure.png[]
 
