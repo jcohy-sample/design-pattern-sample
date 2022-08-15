@@ -1,0 +1,7 @@
+[[design-relational]]
+= 关系型模式(11 种)
+
+
+include::Strategy.adoc[leveloffset=+1]
+
+include::TemplateMethod.adoc[leveloffset=+1]

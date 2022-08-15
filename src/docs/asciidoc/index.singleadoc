@@ -23,33 +23,6 @@ image::{oss-images}/design-pattern-overview.png[]
 ** [接口隔离原则]：尽量将臃肿庞大的接口拆分成更小的和更具体的接口，让接口中只包含客户感兴趣的方法。
 ** [迪米特法则]：如果两个软件实体无须直接通信，那么就不应当发生直接的相互调用，可以通过第三方转发该调用。其目的是降低类之间的耦合度，提高模块的相对独立性。
 ** [合成复用原则]：又叫组合/聚合复用原则，它要求在软件复用时，要尽量先使用组合或者聚合等关联关系来实现，其次才考虑使用继承关系来实现，如果要使用继承关系，则必须严格遵循里氏替换原则。
-* 设计模式
-**  创建型模式(5种)
-*** <<design-factory,工厂模式(Factory Method)>>
-//*** <<design-abstract-factory,抽象工厂模式(Abstract Factory)>>
-//*** <<design-singleton,单例模式(Singleton)>>
-//*** <<design-builder,建造者模式(Builder)>>
-//*** <<design-prototype,原型模式(Prototype)>>
-//**  结构型模式(7种)
-//*** <<design-adapter,适配器模式(Adapter)>>
-//*** <<design-decorator,装饰模式(Decorator)>>
-//*** <<design-proxy,代理模式(Proxy)>>
-//*** <<design-facade,外观模式(Facade)>>
-//*** <<design-bridge,桥接模式(Bridge)>>
-//*** <<design-composite,组合模式(Composite)>>
-//*** <<design-flyweight,亨元模式(Flyweight)>>
-//**  关系型模式(11种)
-//*** <<design-strategy,策略模式(Strategy)>>
-//*** <<design-template,模板方法模式(Template Method)>>
-//*** <<design-observer,观察者模式(Observer)>>
-//*** <<design-iterator,迭代器模式(Iterator)>>
-//*** <<design-responsibility,责任链模式(Chain Of Responsibility)>>
-//*** <<design-command,命令模式(Command)>>
-//*** <<design-memento,备忘录模式(Memento)>>
-//*** <<design-state,状态模式(State)>>
-//*** <<design-visitor,访问者模式(Visitor)>>
-//*** <<design-mediator,中介者模式(Mediator)>>
-//*** <<design-interpreter,解释器模式(Interpreter)>>
 
 适配器模式、装饰模式、代理模式、门面模式、桥接模式、组合模式、享元模式.其中对象的适配器模式是各种模式的起源,我们看下面的图:
 
@@ -97,9 +70,9 @@ image::{oss-images}/design-pattern-uml-symbol.png[]
 
 include::creative/index.adoc[leveloffset=+1]
 
-//include::relational/index.adoc[leveloffset=+1]
-//
 include::structural/index.adoc[leveloffset=+1]
+
+include::relational/index.adoc[leveloffset=+1]
 
 == 参考文献
 

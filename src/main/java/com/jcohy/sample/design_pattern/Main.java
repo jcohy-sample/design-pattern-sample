@@ -1,4 +1,4 @@
-package org.jcohy.sample.design_pattern;
+package com.jcohy.sample.design_pattern;
 
 /**
  * 描述: .
