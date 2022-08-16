@@ -10,6 +10,7 @@ package com.jcohy.sample.design_pattern.template_method;
  * @version 2022.04.0 2022/8/15:17:49
  * @since 2022.04.0
  */
+// tag::code[]
 public class CharDisplay extends AbstractDisplay {
     private char ch;
 
@@ -32,3 +33,4 @@ public class CharDisplay extends AbstractDisplay {
         System.out.print(ch);
     }
 }
+// end::code[]

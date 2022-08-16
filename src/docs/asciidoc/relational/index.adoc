@@ -5,3 +5,5 @@
 include::Strategy.adoc[leveloffset=+1]
 
 include::TemplateMethod.adoc[leveloffset=+1]
+
+include::Observer.adoc[leveloffset=+1]

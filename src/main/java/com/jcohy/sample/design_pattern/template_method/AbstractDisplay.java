@@ -10,6 +10,7 @@ package com.jcohy.sample.design_pattern.template_method;
  * @version 2022.04.0 2022/8/15:17:46
  * @since 2022.04.0
  */
+// tag::code[]
 public abstract class AbstractDisplay {
 
     public abstract void open();
@@ -29,3 +30,4 @@ public abstract class AbstractDisplay {
         close();
     }
 }
+// end::code[]

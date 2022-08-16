@@ -9,12 +9,18 @@
 [[design-observer-role]]
 == 观察者模式的角色
 
-image::{oss-images}/design-observer.png[]
+image::{oss-images}/design-pattern-relational-observer.png[]
 
-*  Subject::他把所有观察者对象的引用保存在一个聚类中,每个主题都可以有任务数量的观察者,抽象主题提供一个接口,可以增加和删除观察者对象.
-*  Observer::抽象观察者,为所有的具体观察者定义一个接口,在得到主题的通知时更新自己.
-*  ConcretetSubject:具体主题,将有关状态存入具体观察者对象,在具体主题的内部状态改变时,给所有登记过的观察者发出通知.
-*  ConcreteObserver:具体观察者,实现抽象观察者角色所要求的更新接口,以便使本身的状态与主题的状态相协调.
+本模式涉及以下角色：
+
+* 抽象主题角色（Subject）: 他把所有观察者对象的引用保存在一个聚类中,每个主题都可以有任务数量的观察者,抽象主题提供一个接口,可以增加和删除观察者对象。一般用类或接口实现。
+* 抽象观察者角色（Observer）: 为所有的具体观察者定义一个接口,在得到主题的通知时更新自己。一般用一个抽象类或接口表示
+* 具体主题角色（ConcreteSubject）:具体主题,将有关状态存入具体观察者对象,在具体主题的内部状态改变时,给所有登记过的观察者发出通知.
+* 具体观察者角色（ConcreteObserver）:具体观察者,实现抽象观察者角色所要求的更新接口,以便使本身的状态与主题的状态相协调.
+
+在大多数情况下，诸如 add，remove 等这样管理方法是所有具体主题角色共有的，因此这些方法连同聚集对象都可以移到抽象主题角色中去。如下结构：
+
+image::{oss-images}/design-pattern-relational-observer2.png[]
 
 [[design-observer-sign]]
 == 适用性
@@ -31,7 +37,50 @@ image::{oss-images}/design-observer.png[]
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
 .Observer
 ----
-include::{java-code}/observer/Observer.java[tag=code]
+include::{java-code}/observer/impl/Observer.java[tag=code]
+----
+
+2、抽象主题接口
+
+[source,java,indent=0,subs="verbatim,quotes",role="primary"]
+.Subject
+----
+include::{java-code}/observer/impl/Subject.java[tag=code]
+----
+
+3、具体观察者
+
+[source,java,indent=0,subs="verbatim,quotes",role="primary"]
+.ConcreteObserver
+----
+include::{java-code}/observer/impl/ConcreteObserver.java[tag=code]
+----
+
+4、具体主题角色
+
+[source,java,indent=0,subs="verbatim,quotes",role="primary"]
+.ConcreteSubject
+----
+include::{java-code}/observer/impl/ConcreteSubject.java[tag=code]
+----
+
+5、客户端
+
+[source,java,indent=0,subs="verbatim,quotes",role="primary"]
+.Client
+----
+include::{java-code}/observer/impl/Client.java[tag=code]
+----
+
+[[design-observer-sample]]
+== 观察者模式的示例(使用抽象类)
+
+1、观察者接口
+
+[source,java,indent=0,subs="verbatim,quotes",role="primary"]
+.Observer
+----
+include::{java-code}/observer/sample/Observer.java[tag=code]
 ----
 
 2、产生数值的抽象类,notifyObservers 告诉所有的 Observers 内容改变.
@@ -39,7 +88,7 @@ include::{java-code}/observer/Observer.java[tag=code]
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
 .NumberGenerator
 ----
-include::{java-code}/observer/NumberGenerator.java[tag=code]
+include::{java-code}/observer/sample/NumberGenerator.java[tag=code]
 ----
 
 3、产生随机数
@@ -47,20 +96,20 @@ include::{java-code}/observer/NumberGenerator.java[tag=code]
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
 .RandomNumberGenerator
 ----
-include::{java-code}/observer/RandomNumberGenerator.java[tag=code]
+include::{java-code}/observer/sample/RandomNumberGenerator.java[tag=code]
 ----
 
-4、实现Observer接口
+4、实现O bserver 接口
 
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
 .GraphObserver
 ----
-include::{java-code}/observer/GraphObserver.java[tag=code]
+include::{java-code}/observer/sample/GraphObserver.java[tag=code]
 ----
 .DigitObserver
 [source,kotlin,indent=0,subs="verbatim,quotes",role="secondary"]
 ----
-include::{java-code}/observer/DigitObserver.java[tag=code]
+include::{java-code}/observer/sample/DigitObserver.java[tag=code]
 ----
 
 5.Client
@@ -68,7 +117,7 @@ include::{java-code}/observer/DigitObserver.java[tag=code]
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
 .Client
 ----
-include::{java-code}/observer/Client.java[tag=code]
+include::{java-code}/observer/sample/Client.java[tag=code]
 ----
 
 6、result
@@ -107,9 +156,11 @@ GraphObserver:
 ***********
 ----
 
+[[design-observer-other]]
+== 与其他模式
 
 [[design-observer-java]]
-== Java语言中观察者模式
+== Java 语言中观察者模式
 
 *  java.util.Observer/java.util.Observable
 *  java.util.EventListener (所有子类)

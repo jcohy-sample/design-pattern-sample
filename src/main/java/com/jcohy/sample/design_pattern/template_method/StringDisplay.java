@@ -10,6 +10,7 @@ package com.jcohy.sample.design_pattern.template_method;
  * @version 2022.04.0 2022/8/15:17:51
  * @since 2022.04.0
  */
+// tag::code[]
 public class StringDisplay extends AbstractDisplay {
 
     private String str;
@@ -45,3 +46,4 @@ public class StringDisplay extends AbstractDisplay {
     }
 
 }
+// end::code[]
