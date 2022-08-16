@@ -9,7 +9,7 @@
 [[design-facade-role]]
 == 门面模式的角色
 
-image::{oss-images}/design-pattern-facade.png[]
+image::{oss-images}/structural/design-pattern-structural-facade.png[]
 
 * 门面角色（Facade）:客户端可以调用这个角色的方法，此角色知道相关子系统的功能和责任。
 * 子系统角色（SubSystem(One,Two,Three,....）:子系统类集合,实现子系统功能,处理 Facade 对象指派的任务,注意子类没有 Facade 对象的任何信息,即没有对 Facade 对象的引用.

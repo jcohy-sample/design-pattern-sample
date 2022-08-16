@@ -11,7 +11,7 @@ package com.jcohy.sample.design_pattern.bridge;
  * @since 2022.04.0
  */
 // tag::code[]
-public class DriverManange extends JDBC {
+public class DriverManager extends JDBC {
 
     @Override
     public void connection() {

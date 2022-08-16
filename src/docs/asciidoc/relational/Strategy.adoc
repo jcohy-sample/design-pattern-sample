@@ -9,7 +9,7 @@
 [[design-strategy-role]]
 == 策略模式的角色
 
-image::{oss-images}/design-pattern-relational-strategy.png[]
+image::{oss-images}/relational/design-pattern-relational-strategy.png[]
 
 * 环境角色（Context）:Context 上下文,用一个 ConcreteStrategy 来配置,维护一个对 Strategy 对象的引用.
 * 抽象策略角色（Strategy）:这是一个抽象角色，通常由一个接口或抽象类实现，此角色给出所有的具体策略类所需的接口

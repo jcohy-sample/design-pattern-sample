@@ -11,7 +11,7 @@
 [[design-bridge-role]]
 == 桥接模式的角色
 
-image::{oss-images}/design-pattern-bridge.png[]
+image::{oss-images}/structural/design-pattern-structural-bridge.png[]
 
 本迷失涉及的角色有：
 
@@ -70,9 +70,9 @@ include::{java-code}/bridge/JDBC.java[tag=code]
 4.具体实现
 
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
-.MyBridge
+.DriverManager
 ----
-include::{java-code}/bridge/DriverManange.java[tag=code]
+include::{java-code}/bridge/DriverManager.java[tag=code]
 ----
 
 5.Client

@@ -7,7 +7,7 @@
 
 就是建立一个工厂类,根据传入的参量决定创建出哪一种产品类的实例.首先看下关系图:
 
-image::{oss-images}/design-pattern-factory-simple.png[]
+image::{oss-images}/creative/design-pattern-creative-factory-simple.png[]
 
 从上图中可以看出，简单工厂模式设计到工厂角色，抽象产品角色和具体产品角色等三个角色
 
@@ -20,7 +20,7 @@ image::{oss-images}/design-pattern-factory-simple.png[]
 
 使用简单工厂模式实现发送信息的功能。UML 图 如下：
 
-image::{oss-images}/design-pattern-factory-simple-impl.png[]
+image::{oss-images}/creative/design-pattern-creative-factory-simple-impl.png[]
 
 1.首先,创建共同的接口
 

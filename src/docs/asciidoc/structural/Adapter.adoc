@@ -10,7 +10,7 @@
 [[design-adapter-role]]
 == 适配器模式的角色
 
-image::{oss-images}/design-pattern-adapter.png[]
+image::{oss-images}/structural/design-pattern-structural-adapter.png[]
 
 *  目标角色（Target）:对象参与者,决定现在需要什么方法的参与者.即客户端所期待的接口.目标可以是具体的或抽象的类,也可以是接口.
 *  源角色（Adaptee）:需要适配的接口

@@ -9,7 +9,7 @@
 [[design-interpreter-role]]
 == 解释器模式的角色
 
-image::{oss-images}/design-interpreter.png[]
+image::{oss-images}/relational/design-interpreter.png[]
 
 
 [[design-interpreter-sign]]

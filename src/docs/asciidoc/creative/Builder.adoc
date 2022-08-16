@@ -16,7 +16,7 @@
 [[design-builder-role]]
 == 建造者模式的角色
 
-image::{oss-images}/design-pattern-builder.png[]
+image::{oss-images}/creative/design-pattern-creative-builder.png[]
 
 本模式涉及四个角色
 

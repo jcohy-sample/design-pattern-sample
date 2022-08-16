@@ -9,7 +9,7 @@
 [[design-observer-role]]
 == 观察者模式的角色
 
-image::{oss-images}/design-pattern-relational-observer.png[]
+image::{oss-images}/relational/design-pattern-relational-observer.png[]
 
 本模式涉及以下角色：
 
@@ -20,7 +20,7 @@ image::{oss-images}/design-pattern-relational-observer.png[]
 
 在大多数情况下，诸如 add，remove 等这样管理方法是所有具体主题角色共有的，因此这些方法连同聚集对象都可以移到抽象主题角色中去。如下结构：
 
-image::{oss-images}/design-pattern-relational-observer2.png[]
+image::{oss-images}/relational/design-pattern-relational-observer2.png[]
 
 [[design-observer-sign]]
 == 适用性

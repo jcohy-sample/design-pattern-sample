@@ -33,7 +33,7 @@
 [[design-prototype-role]]
 == 原型模式的角色
 
-image::{oss-images}/design-pattern-prototype.png[]
+image::{oss-images}/creative/design-pattern-creative-prototype.png[]
 
 本模式涉及三个角色
 
@@ -43,7 +43,7 @@ image::{oss-images}/design-pattern-prototype.png[]
 
 原型模式还有另外一种形式，即新增了一个原型管理器角色,主要用来记录每一个被创建的对象。也称为登记式原型模式。结构图如下：
 
-image::{oss-images}/design-pattern-prototype-manager.png[]
+image::{oss-images}/creative/design-pattern-creative-prototype-manager.png[]
 
 如果创建的原型对象数目较少而且比较固定的话，可以采取第一种形式。在这种情况下，原型对象的引用由客户端自己保存。
 

@@ -9,7 +9,7 @@
 [[design-proxy-role]]
 == 代理模式的角色
 
-image::{oss-images}/design-pattern-proxy.png[]
+image::{oss-images}/structural/design-pattern-structural-proxy.png[]
 
 本模式涉及以下角色
 

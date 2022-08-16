@@ -11,6 +11,8 @@
 
 一个树结构有两种节点组成：树枝节点和树叶节点。树枝节点可以有子节点，而树叶节点不可以有子节点。
 
+image::{oss-images}/structural/design-pattern-structural-composite-tree.png[]
+
 [NOTE]
 ====
 一个树枝节点可以不带任何叶子，但是他因为有带叶子的能力，因此仍然是树枝节点，而不会成为树叶节点。一个树叶节点则永远也不可能带有子节点。
@@ -19,7 +21,7 @@
 [[design-composite-role]]
 == 组合模式的角色
 
-image::{oss-images}/design-pattern-composite.png[]
+image::{oss-images}/structural/design-pattern-structural-composite.png[]
 
 *  抽象构建角色（Component）：组合中的对象声明接口,在适当情况下,这个角色给出共有的接口及其默认行为，声明一个接口用于访问和管理的子部件.
 *  树叶构建角色（Leaf）：在组合中表示树叶对象,定义出参加组合的原始对象的行为.
@@ -54,7 +56,7 @@ image::{oss-images}/design-pattern-composite.png[]
 1、创建 Component
 
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
-.Entry
+.Component
 ----
 include::{java-code}/composite/impl/Component.java[tag=code]
 ----
@@ -62,7 +64,7 @@ include::{java-code}/composite/impl/Component.java[tag=code]
 2、创建 Composite 树枝角色。实现了抽象构件角色所规定的所有接口。
 
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
-.Entry
+.Composite
 ----
 include::{java-code}/composite/impl/Composite.java[tag=code]
 ----
@@ -70,7 +72,7 @@ include::{java-code}/composite/impl/Composite.java[tag=code]
 2、创建 Leaf 树叶角色。同样也实现了抽象构件角色所规定的所有接口。但是因为树叶角色没有子节点，因此 add(), remove(),display() 等方法并没有实际内容。
 
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
-.Entry
+.Leaf
 ----
 include::{java-code}/composite/impl/Leaf.java[tag=code]
 ----

@@ -13,7 +13,7 @@ package com.jcohy.sample.design_pattern.bridge;
 // tag::code[]
 public class Client {
     public static void main(String[] args) {
-        JDBC jdbc = new DriverManange();
+        JDBC jdbc = new DriverManager();
         Driver mysql = new MysqlDriver();
         jdbc.setDriver(mysql);
         jdbc.connection();

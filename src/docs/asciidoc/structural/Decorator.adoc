@@ -9,7 +9,7 @@
 [[design-decorator-role]]
 == 装饰器模式的角色
 
-image::{oss-images}/design-pattern-decorator.png[]
+image::{oss-images}/structural/design-pattern-structural-decorator.png[]
 
 在装饰模式中的各个角色：
 

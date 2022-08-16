@@ -17,7 +17,7 @@
 [[design-flyweight-role]]
 == 亨元模式的角色
 
-image::{oss-images}/design-pattern-flyweight.png[]
+image::{oss-images}/structural/design-pattern-structural-flyweight.png[]
 
 本模式涉及的角色如下：
 
@@ -40,7 +40,7 @@ image::{oss-images}/design-pattern-flyweight.png[]
 1、创建抽象享元角色
 
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
-.Java
+.Flyweight
 ----
 include::{java-code}/flyweight/impl/Flyweight.java[tag=code]
 ----
@@ -48,23 +48,23 @@ include::{java-code}/flyweight/impl/Flyweight.java[tag=code]
 2、具体享元角色
 
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
-.Java
+.ConcreteFlyweight
 ----
 include::{java-code}/flyweight/impl/ConcreteFlyweight.java[tag=code]
 ----
 
-3、享元工厂角色
+3、复合享元角色
 
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
-.Java
+.UnsharedConcreteFlyweight
 ----
-include::{java-code}/flyweight/impl/FlyweightFactory.java[tag=code]
+include::{java-code}/flyweight/impl/UnsharedConcreteFlyweight.java[tag=code]
 ----
 
-4、复合享元角色
+4、享元工厂角色
 
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
-.Java
+.FlyweightFactory
 ----
 include::{java-code}/flyweight/impl/FlyweightFactory.java[tag=code]
 ----
@@ -72,9 +72,9 @@ include::{java-code}/flyweight/impl/FlyweightFactory.java[tag=code]
 5、客户端
 
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
-.Java
+.Client
 ----
-include::{java-code}/flyweight/impl/UnsharedConcreteFlyweight.java[tag=code]
+include::{java-code}/flyweight/impl/Client.java[tag=code]
 ----
 
 6、输出：

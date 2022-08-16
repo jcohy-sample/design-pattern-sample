@@ -5,7 +5,7 @@
 
 由于使用多态性，工厂方法模式保持简单工厂模式的优点，同时又克服了它的缺点。
 
-image::{oss-images}/design-pattern-factory-method.png[]
+image::{oss-images}/creative/design-pattern-factory-creative-method.png[]
 
 从上图中可以看出，使用工厂模式涉及以下角色
 
@@ -19,7 +19,7 @@ image::{oss-images}/design-pattern-factory-method.png[]
 
 我们来扩展一下简单工厂模式中的 <<factory-simple-impl,示例>>
 
-image::{oss-images}/design-pattern-factory-method-impl.png[]
+image::{oss-images}/creative/design-pattern-creative-factory-method-impl.png[]
 
 上面例子的一二步不变,创建共同的接口和实现类.
 
