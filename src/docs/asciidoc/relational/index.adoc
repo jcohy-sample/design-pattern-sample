@@ -7,3 +7,13 @@ include::Strategy.adoc[leveloffset=+1]
 include::TemplateMethod.adoc[leveloffset=+1]
 
 include::Observer.adoc[leveloffset=+1]
+
+include::Iterator.adoc[leveloffset=+1]
+
+include::Responsibility.adoc[leveloffset=+1]
+
+include::Command.adoc[leveloffset=+1]
+
+include::Memento.adoc[leveloffset=+1]
+
+include::State.adoc[leveloffset=+1]

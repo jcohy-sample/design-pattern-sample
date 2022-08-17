@@ -4,16 +4,18 @@
 [[design-memento-overview]]
 == 概述
 
-备忘录模式: 在不破坏封装性的前提下,捕获一个对象的内部状态,并在这个对象之外保存这个状态,这样以后就可将该对象恢复到原先保存的状态.
+备忘录模式: 又叫做快照模式或 Token 模式，是对象的行为模式。在不破坏封装性的前提下,捕获一个对象的内部状态,并在这个对象之外保存这个状态,这样以后就可将该对象恢复到原先保存的状态.
 
 [[design-memento-role]]
 == 备忘录模式的角色
 
-image::{oss-images}/relational/design-memento.png[]
+image::{oss-images}/relational/design-pattern-relational-memento.png[]
 
-*  Originator:负责创建一个备忘录Memento,用来记录当前时刻他的内部状态,并可使用备忘录恢复他的内部状态.
-*  Memento: 负责存储Originator对象的内部状态,并可防止Originator以外的其他对象访问备忘录Memento.
-*  Caretaker: 负责保存好备忘录Memento
+此模式涉及以下角色：
+
+* 发起人角色（Originator）:负责创建一个备忘录 Memento,用来记录当前时刻他的内部状态,并可使用备忘录恢复他的内部状态.
+* 备忘录模式（Memento）: 负责存储 Originator 对象的内部状态,并可防止 Originator 以外的其他对象访问备忘录 Memento.
+* 负责人角色（Caretaker）: 负责保存好备忘录 Memento，不检查备忘录对象的内容
 
 [[design-memento-sign]]
 == 适用性
@@ -24,28 +26,38 @@ image::{oss-images}/relational/design-memento.png[]
 [[design-memento-impl]]
 == 备忘录模式的实现
 
+1、Memento
+
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
-.Original
-----
-include::{java-code}/memento/example2/Original.java[tag=code]
-----
 .Memento
 [source,kotlin,indent=0,subs="verbatim,quotes",role="secondary"]
 ----
-include::{java-code}/memento/example2/Memento.java[tag=code]
+include::{java-code}/memento/Memento.java[tag=code]
 ----
+
+2、Original
+
+[source,java,indent=0,subs="verbatim,quotes",role="primary"]
+.Original
+----
+include::{java-code}/memento/Original.java[tag=code]
+----
+
+3、Storage
+
+[source,java,indent=0,subs="verbatim,quotes",role="primary"]
 .Storage
 [source,kotlin,indent=0,subs="verbatim,quotes",role="secondary"]
 ----
-include::{java-code}/memento/example2/Storage.java[tag=code]
+include::{java-code}/memento/Storage.java[tag=code]
 ----
 
-测试:
+4、Client
 
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
 .Client
 ----
-include::{java-code}/memento/example2/Client.java[tag=code]
+include::{java-code}/memento/Client.java[tag=code]
 ----
 
 result:
@@ -56,6 +68,23 @@ result:
 修改后的状态为: niu
 恢复后的状态为: egg
 ----
+
+[[design-memento-advence]]
+== 备忘录模式的优缺点
+
+优点
+
+* 有时一些发起人对象的内部信息必须保存在发起人对象以外的地方，但是必须要由发起人对象自己读取。这时，使用备忘录可以把复杂的发起人内部信息对其他对象屏蔽起来，从而可以恰当地保持封装的边界
+* 本模式简化了发起人类（Originator），发起人（Originator）不再需要管理和保存其内部状态的一个个版本，客户端可以自行管理它们所需要的这些状态的版本
+* 当发起人角色的状态改变的时候，有可能这个状态无效，这时候就可以使用暂时存储起来的备忘录将状态复原。
+
+缺点：
+
+* 如果发起人角色的状态需要完整地存储到备忘录对象中，那么在资源消耗上面备忘录对象会很昂贵
+* 当负责人角色将一个备忘录存储起来的时候，负责人可能并不知道这个状态会占用多大的空间，从而无法提醒用户一个操作是否很昂贵
+
+[[design-memento-other]]
+== 备忘录模式与其他模式的区别
 
 [[design-memento-qa]]
 == Q&A

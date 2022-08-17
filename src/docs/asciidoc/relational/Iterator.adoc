@@ -4,18 +4,20 @@
 [[design-iterator-overview]]
 == 概述
 
-迭代子模式: 提供一种方法顺序访问一个聚合对象中的各个元素,而又不暴露该对象的内部表示.
+迭代子模式（游标模式）: 是对象的一种行为模式，提供一种方法顺序访问一个聚合对象中的各个元素,而又不暴露该对象的内部表示.
 
 [[design-iterator-role]]
 == 迭代器模式的角色
 
-image::{oss-images}/relational/design-iterator.png[iterator]
+image::{oss-images}/relational/design-pattern-relational-iterator.png[iterator]
 
-*  Aggregate:聚集抽象类
-*  ConcreteAggregate:具体聚集类,继承Aggregate
-*  Iterator:迭代抽象类,用于定义得到的开始对象,得到下一个对象,判断是否到结尾,当前对象等抽象方法,统一接口.
-*  ConcreteIterator:具体迭代类,继承Iterator,实现其中的方法.
-*  Client
+本模式涉及以下角色：
+
+* 抽象迭代器角色（Iterator）:此抽象角色定义出遍历元素所需的接口.
+* 具体迭代器角色（ConcreteIterator）:此角色实现 Iterator 接口，并保持迭代过程中的游标位置
+* 聚集角色（Aggregate）：此抽象角色给出创建迭代器（Iterator）对象的接口。
+* 具体聚集角色（ConcreteAggregate）：实现了创建迭代器（Iterator）对象的接口，返回一个合适的具体迭代器实例。
+* 客户端（Client）：持有对聚集及其迭代器对象的引用，调用迭代器对象的迭代方法。
 
 [[design-iterator-sign]]
 == 适用性
@@ -29,7 +31,7 @@ image::{oss-images}/relational/design-iterator.png[iterator]
 
 实现一个把书籍放到书架上,并依次输出书名.
 
-1、定义Book实体类
+1、定义 Book 实体类
 
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
 .Book
@@ -37,23 +39,7 @@ image::{oss-images}/relational/design-iterator.png[iterator]
 include::{java-code}/iterator/Book.java[tag=code]
 ----
 
-2、定义接口
-
-[source,java,indent=0,subs="verbatim,quotes",role="primary"]
-.Aggregate
-----
-include::{java-code}/iterator/Aggregate.java[tag=code]
-----
-
-3、实现
-
-[source,java,indent=0,subs="verbatim,quotes",role="primary"]
-.BookShelf
-----
-include::{java-code}/iterator/BookShelf.java[tag=code]
-----
-
-4、执行递增,遍历的接口
+2、执行递增,遍历的接口
 
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
 .Iterator
@@ -61,12 +47,29 @@ include::{java-code}/iterator/BookShelf.java[tag=code]
 include::{java-code}/iterator/Iterator.java[tag=code]
 ----
 
-5、实现
+3、实现
 
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
 .BookShelfIterator
 ----
 include::{java-code}/iterator/BookShelfIterator.java[tag=code]
+----
+
+
+4、定义接口
+
+[source,java,indent=0,subs="verbatim,quotes",role="primary"]
+.Aggregate
+----
+include::{java-code}/iterator/Aggregate.java[tag=code]
+----
+
+5、实现
+
+[source,java,indent=0,subs="verbatim,quotes",role="primary"]
+.BookShelf
+----
+include::{java-code}/iterator/BookShelf.java[tag=code]
 ----
 
 6.Client
@@ -87,11 +90,28 @@ Book [name=Effective C++]
 Book [name=Effective PHP]
 ----
 
+[[design-iterator-advence]]
+== 迭代器模式的优缺点
+
+优点:
+
+* 简化了聚集的界面。迭代器具备了一个遍历的接口，这样聚集的接口就不必具备遍历接口
+* 每一个聚集对象都可以有一个或一个以上的迭代器对象，每一个迭代器的迭代状态可以是彼此独立的。因此，一个聚集对象可以同时有几个迭代在进行之中
+* 由于遍历算法是被封装在迭代器劫色里面，因此迭代算法可以独立于聚集角色变化。由于客户端拿到的是一个迭代器对象，因此，不必知道聚集对象的类型，就可以读取和遍历聚集对象。这样即便聚集对象的类型发生变化，也不会影响到客户端的遍历过程。
+
+缺点：
+
+* 迭代器模式给客户端一个聚集被顺序化的错觉，因为大多数情况下聚集的元素并没有明确的顺序，但是迭代器必须以一定的线性顺序进行。如果客户端误以为顺序是聚集本身具有的特性而过渡依赖于聚集元素的顺序，很可能会得出错误的结论
+* 迭代器给出的聚集元素没有类型特征。一般而言，迭代器给出的元素都是 Object 类型。因此，客户端必须具备这些元素类型的知识才能使用这些元素。
+
+[[design-iterator-other]]
+== 迭代器模式与其他模式的关系
+
 [[design-iterator-qa]]
 == Q&A
 
 [[design-iterator-java]]
-== Java语言中迭代器模式
+== Java 语言中迭代器模式
 
 *  java.util.Iterator
 *  java.util.Enumeration
