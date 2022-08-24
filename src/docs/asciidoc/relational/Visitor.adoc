@@ -5,26 +5,104 @@
 [[design-visitor-overview]]
 == 概述
 
-访问者模式: 表示一个作用于某对象结构中的各元素的操作.它可以使你在不改变各元素的类的前提下定义作用与这些元素的新操作.
+访问者模式: 是对象的行为模式，表示一个作用于某对象结构中的各元素的操作.它可以使你在不改变各元素的类的前提下定义作用与这些元素的新操作.
 
 [[design-visitor-role]]
 == 访问者模式的角色
 
-image::{oss-images}/relational/design-visitor.png[]
+image::{oss-images}/relational/design-pattern-relational-visitor.png[]
 
-*  Visitor:为该对象结构中的ConcreteElement的每一个类声明一个Visit操作.
-*  ConcreteVisit(1、2、3...):具体访问者,实现每个由Visitor声明的操作,每个操作实现算法的一部分,而该算法的片段乃是对应于结构中对象的类.
-*  Element:定义一个Accept操作,他以一个访问者为参数.
-*  ConcreteElement(1、2、3...):具体元素,实现Accept操作.
-*  ObjectStructure:能枚举他的元素,可以提供一个高层的接口以访问者访问他的元素.
-*  Client:
+本模式涉及到以下角色
+
+* 抽象访问者角色（Visitor）:声明了一个或多个访问操作，形成所有的具体元素角色必须实现的接口。
+* 具体访问者角色（ConcreteVisit(1、2、3...)）:具体访问者,实现每个由 Visitor 声明的操作,每个操作实现算法的一部分,而该算法的片段乃是对应于结构中对象的类.
+* 抽象节点角色（Node）:声明一个接受操作，接受一个访问者对象作为一个参量。
+* 具体节点角色（ConcreteNode(1、2、3...)）:实现了抽象元素所规定的接受操作.
+* 结构对象（ObjectStructure）:有如下的一些责任，可以遍历结构中的所有元素，如有需要，提供一个高层次的接口让访问者对象可以访问每一个元素。
+* Client: 客户端
 
 [[design-visitor-sign]]
 == 适用性
 
+[[design-visitor-impl]]
+== 实现
+
+1、创建抽象访问者角色，为每一个节点提供一个访问操作，接受相应的节点对象作为参数。
+
+[source,java,indent=0,subs="verbatim,quotes",role="primary"]
+.Visitor
+----
+include::{java-code}/visitor/Visitor.java[tag=code]
+----
+
+2、具体访问者
+
+[source,java,indent=0,subs="verbatim,quotes",role="primary"]
+.VisitorA
+----
+include::{java-code}/visitor/VisitorA.java[tag=code]
+----
+.VisitorB
+[source,kotlin,indent=0,subs="verbatim,quotes",role="secondary"]
+----
+include::{java-code}/visitor/VisitorB.java[tag=code]
+----
+
+3、抽象节点，声明了一个接受操作
+
+[source,java,indent=0,subs="verbatim,quotes",role="primary"]
+.Visitor
+----
+include::{java-code}/visitor/Node.java[tag=code]
+----
+
+4、具体节点，实现了抽象节点中的方法，并且同时还具有若干个其他方法。
+
+[source,java,indent=0,subs="verbatim,quotes",role="primary"]
+.ConcreteNodeA
+----
+include::{java-code}/visitor/ConcreteNodeA.java[tag=code]
+----
+.ConcreteNodeB
+[source,kotlin,indent=0,subs="verbatim,quotes",role="secondary"]
+----
+include::{java-code}/visitor/ConcreteNodeB.java[tag=code]
+----
+
+5、结构对象角色。有一个集合，并提供 add 方法对集合进行添加，可以动态的添加一个节点
+
+[source,java,indent=0,subs="verbatim,quotes",role="primary"]
+.ObjectStructure
+----
+include::{java-code}/visitor/ObjectStructure.java[tag=code]
+----
+
+6、客户端
+
+[source,java,indent=0,subs="verbatim,quotes",role="primary"]
+.Client
+----
+include::{java-code}/visitor/Client.java[tag=code]
+----
+
+[[design-visitor-advence]]
+== 访问者模式优缺点
+
+优点：
+
+* 访问者模式使得增加新的操作变得很容易。如果一些操作依赖于一个复杂的结构对象的话，那么一般而言，增加新的操作会很复杂。而使用访问者模式，增加新的操作就意味着增加一个新的访问类，因此，很容易
+* 访问者模式将有关的行为集中到一个访问者对象中，而不是分散到一个个的节点类中。
+* 访问者模式可以跨过几个类的等级结构访问属于不同的等级结构的成员类。迭代器模式只能访问属于同一个类型等级结构的成员对象。
+* 积累状态。每一个单独的访问者对象都集中了相关的行为，从而也就可以在访问的过程中将执行操作的状态积累在自己内部，而不是分散到很多不同的节点对象中。有益于系统的维护。
+
+缺点：
+
+* 增加新的节点类变得困难。每增加一个新的节点都意味着要在抽象访问者角色中增加一个新的抽象操作，并在每一个具体访问者类中增加相应的具体操作
+* 破坏封装。访问者模式要求访问者对象访问并调用每一个节点对象的操作，这隐含了一个对所有节点对象的要求：他们必须暴露一些自己的操作和内部状态。不然，访问者的访问就变得没有意义。
+
 
 [[design-visitor-java]]
-== Java语言中访问者模式
+== Java 语言中访问者模式
 
 *  javax.lang.model.element.AnnotationValue 和 AnnotationValueVisitor
 *  javax.lang.model.element.Element 和 ElementVisitor

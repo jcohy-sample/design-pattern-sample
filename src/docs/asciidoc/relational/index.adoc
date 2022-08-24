@@ -17,3 +17,7 @@ include::Command.adoc[leveloffset=+1]
 include::Memento.adoc[leveloffset=+1]
 
 include::State.adoc[leveloffset=+1]
+
+include::Visitor.adoc[leveloffset=+1]
+
+include::Interpreter.adoc[leveloffset=+1]

@@ -4,13 +4,27 @@
 [[design-interpreter-overview]]
 == 概述
 
-给定一个语言,定义它的文法的一种表示,并定义一个解释器,这个解释器使用该表示来解释语言中的句子.
+解释器模式是类的行为模式，给定一个语言,定义它的文法的一种表示,并定义一个解释器,这个解释器使用该表示来解释语言中的句子.
 
 [[design-interpreter-role]]
 == 解释器模式的角色
 
-image::{oss-images}/relational/design-interpreter.png[]
+image::{oss-images}/relational/design-pattern-relational-interpreter.png[]
 
+本模式涉及以下角色
+
+* 抽象表达式角色（AbstractExpression）：声明一个所有的具体表达式角色都需要实现的抽象接口。这个接口主要是一个 interpret 方法，叫做解释操作。
+* 终结符表达式（TerminalExpression）：这是一个具体角色
+** 实现了抽象表达式角色所要求的接口
+** 文法中的每一个终结符都有一个具体终结表达式与之相对应
+* 非终结符表达式（NonterminalExpression）：这是一个具体角色
+** 文法中的每一条规则 R=R1R2...Rn 都需要一个具体的非终结符表达式类
+** 对每一个 R1R2...Rn 中的符号都持有一个静态类型为 Expression 的实例变量
+** 实现解释操作，即 interpret 方法，解释操作以递归方式调用上面所提到的代表 R1R2...Rn 中的各个符号的实例变量
+* 客户端（Client）：代表模式的客户端它有以下功能
+** 建造一个抽象语法树（AST）
+** 调用解释操作
+** 环境角色（Context）：提供解释器之外的一些全局信息
 
 [[design-interpreter-sign]]
 == 适用性
@@ -22,8 +36,63 @@ image::{oss-images}/relational/design-interpreter.png[]
 [[design-interpreter-impl]]
 == 解释器模式的实现
 
+1、抽象角色，这个抽象类代表终结类和非终结类的抽象化
+
+[source,java,indent=0,subs="verbatim,quotes",role="primary"]
+.Expression
+----
+include::{java-code}/interpreter/Expression.java[tag=code]
+----
+
+2、具体表达式角色，一个 Constant 对象代表一个布尔常量，一个 Variable 代表一个有名变量
+
+[source,java,indent=0,subs="verbatim,quotes",role="primary"]
+.Constant
+----
+include::{java-code}/interpreter/Constant.java[tag=code]
+----
+.Variable
+[source,kotlin,indent=0,subs="verbatim,quotes",role="secondary"]
+----
+include::{java-code}/interpreter/Variable.java[tag=code]
+----
+
+3、具体表达式角色，代表逻辑与操作的 `And` `Or` `Not` 类。
+
+[source,java,indent=0,subs="verbatim,quotes",role="primary"]
+.And
+----
+include::{java-code}/interpreter/And.java[tag=code]
+----
+.Or
+[source,kotlin,indent=0,subs="verbatim,quotes",role="secondary"]
+----
+include::{java-code}/interpreter/Or.java[tag=code]
+----
+.Not
+[source,kotlin,indent=0,subs="verbatim,quotes",role="third"]
+----
+include::{java-code}/interpreter/Not.java[tag=code]
+----
+
+4、环境角色。定义从变量到布尔值的映射
+
+[source,java,indent=0,subs="verbatim,quotes",role="primary"]
+.Context
+----
+include::{java-code}/interpreter/Context.java[tag=code]
+----
+
+5.Client
+
+[source,java,indent=0,subs="verbatim,quotes",role="primary"]
+.Client
+----
+include::{java-code}/interpreter/Client.java[tag=code]
+----
+
 [[design-interpreter-qa]]
 == Q&A
 
 [[design-interpreter-java]]
-== Java语言中的解释器模式
+== Java 语言中的解释器模式
