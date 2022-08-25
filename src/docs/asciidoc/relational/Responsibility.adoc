@@ -9,7 +9,7 @@
 [[design-responsibility-role]]
 == 责任链模式的角色
 
-image::{oss-images}/relational/ddesign-pattern-relational-responsibility.png[]
+image::{oss-images}/relational/design-pattern-relational-responsibility.png[]
 
 此模式具有以下角色：
 

@@ -5,7 +5,7 @@
 
 由于使用多态性，工厂方法模式保持简单工厂模式的优点，同时又克服了它的缺点。
 
-image::{oss-images}/creative/design-pattern-factory-creative-method.png[]
+image::{oss-images}/creative/design-pattern-creative-factory-method.png[]
 
 从上图中可以看出，使用工厂模式涉及以下角色
 
