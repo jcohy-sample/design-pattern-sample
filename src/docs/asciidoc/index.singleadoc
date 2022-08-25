@@ -7,13 +7,23 @@ include::attributes.adoc[]
 作者网页:
 https://www.jcohy.com[*https://www.jcohy.com*]
 
-文档翻译网址:
-https://docs.jcohy.com[*https://docs.jcohy.com*]
-
 我的学习笔记,记录学习过程中的笔记以及遇到的问题,以及我的一些经验总结.如果出现链接失效,或者想知道更多的内容等情况可以提交 https://github.com/jcohy/jcohy-issues/issues[Issues] 提醒我修改相关内容.
 ****
 
+== 设计模式一览
+
 image::{oss-images}/design-pattern-overview.png[]
+
+
+适配器模式、装饰模式、代理模式、门面模式、桥接模式、组合模式、享元模式.其中对象的适配器模式是各种模式的起源,我们看下面的图:
+
+image::{oss-images}/design-pattern-structure.png[]
+
+策略模式、模板方法模式、观察者模式、迭代子模式、责任链模式、命令模式、备忘录模式、状态模式、访问者模式、中介者模式、解释器模式.大致分为四类关系:
+
+image::{oss-images}/design-pattern-real.png[]
+
+== 设计原则
 
 * [设计原则]
 ** [开闭原则] ：当应用的需求改变时，在不修改软件实体的源代码或者二进制代码的前提下，可以扩展模块的功能，使其满足新的需求。
@@ -23,14 +33,6 @@ image::{oss-images}/design-pattern-overview.png[]
 ** [接口隔离原则]：尽量将臃肿庞大的接口拆分成更小的和更具体的接口，让接口中只包含客户感兴趣的方法。
 ** [迪米特法则]：如果两个软件实体无须直接通信，那么就不应当发生直接的相互调用，可以通过第三方转发该调用。其目的是降低类之间的耦合度，提高模块的相对独立性。
 ** [合成复用原则]：又叫组合/聚合复用原则，它要求在软件复用时，要尽量先使用组合或者聚合等关联关系来实现，其次才考虑使用继承关系来实现，如果要使用继承关系，则必须严格遵循里氏替换原则。
-
-适配器模式、装饰模式、代理模式、门面模式、桥接模式、组合模式、享元模式.其中对象的适配器模式是各种模式的起源,我们看下面的图:
-
-image::{oss-images}/design-pattern-structure.png[]
-
-策略模式、模板方法模式、观察者模式、迭代子模式、责任链模式、命令模式、备忘录模式、状态模式、访问者模式、中介者模式、解释器模式.大致分为四类关系:
-
-image::{oss-images}/design-pattern-real.png[]
 
 |===
 |设计模式 |归纳 |目的
@@ -64,7 +66,7 @@ image::{oss-images}/design-pattern-real.png[]
 |降低代码耦合
 |===
 
-UML 中常用箭头含义
+== UML 中常用箭头含义
 
 image::{oss-images}/design-pattern-uml-symbol.png[]
 
