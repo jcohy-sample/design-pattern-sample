@@ -7,7 +7,40 @@
 
 就是建立一个工厂类,根据传入的参量决定创建出哪一种产品类的实例.首先看下关系图:
 
-image::{oss-images}/creative/design-pattern-creative-factory-simple.png[]
+[plantuml,"images/creative/design-pattern-creative-factory-simple.svg"]
+----
+@startuml
+title 简单工厂模式结构图
+
+Creator .> Product
+Product <|.. ConcreteProduct1
+Product <|.. ConcreteProduct2
+
+note top of Product:定义工厂方法所创建的接口
+note "实现 Product 接口" as N1
+ConcreteProduct1 .. N1
+ConcreteProduct2 .. N1
+
+interface Product <<interface>> {
+   + concreteProduct
+}
+
+class ConcreteProduct1 {
+    + concreteProduct
+}
+
+class ConcreteProduct2 {
+    + concreteProduct
+}
+
+class Creator {
+    + factory: Product
+}
+
+@enduml
+----
+
+// image::{oss-images}/creative/design-pattern-creative-factory-simple.png[]
 
 从上图中可以看出，简单工厂模式设计到工厂角色，抽象产品角色和具体产品角色等三个角色
 
@@ -20,7 +53,33 @@ image::{oss-images}/creative/design-pattern-creative-factory-simple.png[]
 
 使用简单工厂模式实现发送信息的功能。UML 图 如下：
 
-image::{oss-images}/creative/design-pattern-creative-factory-simple-impl.png[]
+
+[plantuml,"images/creative/design-pattern-creative-factory-simple-impl.svg"]
+----
+@startuml
+interface Sender <<interface>> {
+    + send()
+}
+
+class MailSender {
+    + send()
+}
+
+class SmsSender {
+    + send()
+}
+
+class SendFactory {
+    + produce: String
+}
+
+Sender <|.. MailSender
+Sender <|.. SmsSender
+SendFactory ..right> Sender
+@enduml
+----
+
+//image::{oss-images}/creative/design-pattern-creative-factory-simple-impl.png[]
 
 1.首先,创建共同的接口
 
